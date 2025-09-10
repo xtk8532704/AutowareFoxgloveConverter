@@ -1,0 +1,226 @@
+{
+  "configById": {
+    "3D!46c57bh": {
+      "cameraState": {
+        "perspective": false,
+        "distance": 147.84593541826203,
+        "phi": 101.25005729832823,
+        "thetaOffset": 132.9166667372394,
+        "targetOffset": [
+          -56.595203320377024,
+          24.33681958138131,
+          -1.017858229075113e-13
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {},
+      "transforms": {
+        "frame:base_link": {
+          "visible": true
+        }
+      },
+      "topics": {
+        "/awapi/prediction/get/objects": {
+          "visible": true
+        },
+        "/control/autonomous_emergency_braking/virtual_wall": {
+          "visible": true
+        },
+        "/control/autonomous_emergency_braking/debug/markers": {
+          "visible": true
+        },
+        "/control/collision_detector/debug_markers": {
+          "visible": true
+        },
+        "/control/control_validator/debug/marker": {
+          "visible": true
+        },
+        "/planning/mission_planning/route_marker": {
+          "visible": true
+        },
+        "/planning/planning_validator/debug/marker": {
+          "visible": true
+        },
+        "/planning/planning_validator/rear_collision_checker/debug/cluster_points": {
+          "visible": true,
+          "colorMode": "flat",
+          "colorMap": "turbo"
+        },
+        "/planning/planning_validator/rear_collision_checker/debug/voxel_points": {
+          "visible": true,
+          "colorField": "z",
+          "colorMode": "colormap",
+          "colorMap": "turbo"
+        },
+        "/planning/debug/objects_of_interest/static_obstacle_avoidance_right": {
+          "visible": true
+        },
+        "/planning/debug/objects_of_interest/traffic_light": {
+          "visible": true
+        },
+        "/planning/debug/objects_of_interest/static_obstacle_avoidance_left": {
+          "visible": true
+        },
+        "/planning/debug/objects_of_interest/run_out": {
+          "visible": true
+        },
+        "/planning/debug/objects_of_interest/obstacle_stop": {
+          "visible": true
+        },
+        "/planning/debug/objects_of_interest/obstacle_slow_down": {
+          "visible": true
+        },
+        "/planning/debug/objects_of_interest/no_stopping_area": {
+          "visible": true
+        },
+        "/planning/debug/objects_of_interest/intersection": {
+          "visible": true
+        },
+        "/planning/debug/objects_of_interest/lane_change_left": {
+          "visible": true
+        },
+        "/planning/debug/objects_of_interest/obstacle_cruise": {
+          "visible": true
+        },
+        "/map/vector_map_marker": {
+          "visible": true
+        },
+        "/initialpose3d": {
+          "visible": false
+        },
+        "/control/vehicle_cmd_gate/is_filter_activated/marker_raw": {
+          "visible": false
+        },
+        "/perception/object_recognition/objects": {
+          "visible": true
+        },
+        "/perception/object_recognition/tracking/objects": {
+          "visible": false
+        },
+        "/perception/obstacle_segmentation/pointcloud": {
+          "visible": true,
+          "colorField": "intensity",
+          "colorMode": "colormap",
+          "colorMap": "turbo"
+        }
+      },
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {}
+    },
+    "RawMessages!21rpfci": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/planning/planning_evaluator/metrics",
+      "expansion": {
+        "stamp": "c",
+        "metric_array": "c",
+        "0~metric_array": "c",
+        "1~metric_array": "c",
+        "2~metric_array": "c",
+        "3~metric_array": "c",
+        "4~metric_array": "c",
+        "5~metric_array": "c",
+        "6~metric_array": "c",
+        "7~metric_array": "c",
+        "8~metric_array": "c",
+        "9~metric_array": "c",
+        "10~metric_array": "c",
+        "11~metric_array": "c",
+        "12~metric_array": "c",
+        "13~metric_array": "c",
+        "14~metric_array": "c",
+        "15~metric_array": "c",
+        "16~metric_array": "c",
+        "17~metric_array": "c",
+        "18~metric_array": "c",
+        "19~metric_array": "c",
+        "20~metric_array": "c",
+        "21~metric_array": "c",
+        "22~metric_array": "c",
+        "23~metric_array": "c",
+        "24~metric_array": "c",
+        "25~metric_array": "c",
+        "26~metric_array": "c",
+        "27~metric_array": "c",
+        "28~metric_array": "c",
+        "29~metric_array": "c",
+        "30~metric_array": "c",
+        "31~metric_array": "c",
+        "32~metric_array": "c",
+        "33~metric_array": "c",
+        "34~metric_array": "c",
+        "35~metric_array": "c",
+        "36~metric_array": "c",
+        "37~metric_array": "c",
+        "38~metric_array": "c",
+        "39~metric_array": "c",
+        "40~metric_array": "c",
+        "41~metric_array": "c",
+        "42~metric_array": "c",
+        "43~metric_array": "c",
+        "44~metric_array": "c",
+        "45~metric_array": "c",
+        "46~metric_array": "c",
+        "47~metric_array": "c",
+        "48~metric_array": "c",
+        "49~metric_array": "c",
+        "50~metric_array": "c",
+        "51~metric_array": "c",
+        "52~metric_array": "c",
+        "53~metric_array": "c",
+        "54~metric_array": "c",
+        "55~metric_array": "c",
+        "56~metric_array": "c",
+        "57~metric_array": "c",
+        "58~metric_array": "c",
+        "59~metric_array": "c",
+        "60~metric_array": "c",
+        "61~metric_array": "c",
+        "62~metric_array": "c",
+        "63~metric_array": "c",
+        "64~metric_array": "c",
+        "65~metric_array": "c",
+        "66~metric_array": "c",
+        "67~metric_array": "c"
+      }
+    }
+  },
+  "globalVariables": {
+    "": "\"\""
+  },
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": {
+    "first": "3D!46c57bh",
+    "second": "RawMessages!21rpfci",
+    "direction": "row",
+    "splitPercentage": 79.65260545905707
+  }
+}
