@@ -2,7 +2,7 @@
 
 Special thanks to [https://github.com/kminoda/AutowareFoxgloveConverter](https://github.com/kminoda/AutowareFoxgloveConverter) for the inspiration and the code to get started.
 
-Currently supported message Converters:
+Supported message Converters:
 - Perception:
   - [autoware_auto_perception_msgs::msg::DetectedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/DetectedObjects.idl)
   - [autoware_auto_perception_msgs::msg::TrackedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/TrackedObjects.idl)
@@ -13,9 +13,12 @@ Currently supported message Converters:
 - Localization:
   - [nav_msgs::msg::Odometry](https://docs.ros2.org/foxy/api/nav_msgs/msg/Odometry.html)
 
-Currently available Panels:
+Available Panels:
 - DLR Diagnostics Result: Display `Diagnostics` condition results of [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2).
 - Vehicle Config: Select a vehicle to display the ego vehicle.
+
+Available LayOut:
+- [DLRLayout](./DLRLayout.json)
 
 TODO List:
 - Display objects' ID
