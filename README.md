@@ -1,16 +1,26 @@
 # AutowareFoxgloveConverter
 
-Special thanks to [https://github.com/KhalilSelyan/predictedObjectConverter](https://github.com/KhalilSelyan/predictedObjectConverter) for the inspiration and the code to get started.
+Special thanks to [https://github.com/kminoda/AutowareFoxgloveConverter](https://github.com/kminoda/AutowareFoxgloveConverter) for the inspiration and the code to get started.
 
-Currently supported message types:
-- [autoware_auto_perception_msgs::msg::DetectedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/DetectedObjects.idl)
-- [autoware_auto_perception_msgs::msg::TrackedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/TrackedObjects.idl)
-- [autoware_auto_perception_msgs::msg::PredictedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/PredictedObjects.idl)
-- [autoware_perception_msgs::msg::DetectedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/DetectedObjects.msg)
-- [autoware_perception_msgs::msg::TrackedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrackedObjects.msg)
-- [autoware_perception_msgs::msg::PredictedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/PredictedObjects.msg)
+Currently supported message Converters:
+- Perception:
+  - [autoware_auto_perception_msgs::msg::DetectedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/DetectedObjects.idl)
+  - [autoware_auto_perception_msgs::msg::TrackedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/TrackedObjects.idl)
+  - [autoware_auto_perception_msgs::msg::PredictedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/PredictedObjects.idl)
+  - [autoware_perception_msgs::msg::DetectedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/DetectedObjects.msg)
+  - [autoware_perception_msgs::msg::TrackedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrackedObjects.msg)
+  - [autoware_perception_msgs::msg::PredictedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/PredictedObjects.msg)
+- Localization:
+  - [nav_msgs::msg::Odometry](https://docs.ros2.org/foxy/api/nav_msgs/msg/Odometry.html)
 
-Note that this repository may not be maintained and thus the destructive changes on the above ROS 2 messages may not be reflected here.
+Currently available Panels:
+- DLR Diagnostics Result: Display `Diagnostics` condition results of [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2).
+- Vehicle Config: Select a vehicle to display the ego vehicle.
+
+TODO List:
+- Display objects' ID
+- Support planning_factor converter
+- predicted trajectory of MPC
 
 ## _A Foxglove Studio Extension_
 

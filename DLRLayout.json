@@ -3,13 +3,13 @@
     "3D!46c57bh": {
       "cameraState": {
         "perspective": false,
-        "distance": 103.24633077840681,
-        "phi": 0.00005731104651187513,
-        "thetaOffset": -176.43280380156887,
+        "distance": 234.58321917792554,
+        "phi": 0.00005729577951308232,
+        "thetaOffset": -74.58711562861599,
         "targetOffset": [
-          5.47464460606442,
-          -10.963178821263396,
-          -9.994511412196466e-14
+          40.373184161536166,
+          20.356284962799027,
+          -9.918549363158639e-14
         ],
         "target": [
           0,
@@ -127,6 +127,54 @@
         },
         "/planning/debug/objects_of_interest/lane_change_right": {
           "visible": false
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/crosswalk": {
+          "visible": false
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/intersection": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/detection_area": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/crosswalk": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/blind_spot": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/walkway": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/virtual_traffic_light": {
+          "visible": false
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/traffic_light": {
+          "visible": false
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/no_stopping_area": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/stop_line": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/traffic_light": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/virtual_traffic_light": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/walkway": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/motion_velocity_planner/boundary_departure_prevention/debug_markers": {
+          "visible": false
+        },
+        "/map/pointcloud_map": {
+          "visible": false,
+          "colorField": "intensity",
+          "colorMode": "colormap",
+          "colorMap": "turbo"
         }
       },
       "layers": {},
