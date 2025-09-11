@@ -1,6 +1,6 @@
 import { Header } from "./Header";
 import { ClassificationLabel } from "./ClassificationLabel";
-import { Position } from "./Position";
+import { Point } from "./Point";
 import { Orientation } from "./Orientation";
 import { Dimensions } from "./Dimensions";
 
@@ -15,7 +15,7 @@ export type TrackedObjects = {
     kinematics: {
       pose_with_covariance: {
         pose: {
-          position: Position;
+          position: Point;
           orientation: Orientation;
         };
         covariance: Float64Array;

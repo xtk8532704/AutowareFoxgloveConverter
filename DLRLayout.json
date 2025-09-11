@@ -3,13 +3,13 @@
     "3D!46c57bh": {
       "cameraState": {
         "perspective": false,
-        "distance": 147.84593541826203,
-        "phi": 101.25005729832823,
-        "thetaOffset": 132.9166667372394,
+        "distance": 103.246330778407,
+        "phi": 0.00005731104651187513,
+        "thetaOffset": -176.43280379920915,
         "targetOffset": [
-          -56.595203320377024,
-          24.33681958138131,
-          -1.017858229075113e-13
+          5.393415672233242,
+          -10.914898629487833,
+          -9.994511412196466e-14
         ],
         "target": [
           0,
@@ -116,6 +116,17 @@
           "colorField": "intensity",
           "colorMode": "colormap",
           "colorMap": "turbo"
+        },
+        "/localization/pose_with_covariance": {
+          "visible": false
+        },
+        "/localization/kinematic_state": {
+          "visible": true,
+          "color": "#1801018a",
+          "showOutlines": true
+        },
+        "/planning/debug/objects_of_interest/lane_change_right": {
+          "visible": false
         }
       },
       "layers": {},
@@ -135,80 +146,10 @@
       "diffMethod": "custom",
       "diffTopicPath": "",
       "showFullMessageForDiff": false,
-      "topicPath": "/planning/planning_evaluator/metrics",
-      "expansion": {
-        "stamp": "c",
-        "metric_array": "c",
-        "0~metric_array": "c",
-        "1~metric_array": "c",
-        "2~metric_array": "c",
-        "3~metric_array": "c",
-        "4~metric_array": "c",
-        "5~metric_array": "c",
-        "6~metric_array": "c",
-        "7~metric_array": "c",
-        "8~metric_array": "c",
-        "9~metric_array": "c",
-        "10~metric_array": "c",
-        "11~metric_array": "c",
-        "12~metric_array": "c",
-        "13~metric_array": "c",
-        "14~metric_array": "c",
-        "15~metric_array": "c",
-        "16~metric_array": "c",
-        "17~metric_array": "c",
-        "18~metric_array": "c",
-        "19~metric_array": "c",
-        "20~metric_array": "c",
-        "21~metric_array": "c",
-        "22~metric_array": "c",
-        "23~metric_array": "c",
-        "24~metric_array": "c",
-        "25~metric_array": "c",
-        "26~metric_array": "c",
-        "27~metric_array": "c",
-        "28~metric_array": "c",
-        "29~metric_array": "c",
-        "30~metric_array": "c",
-        "31~metric_array": "c",
-        "32~metric_array": "c",
-        "33~metric_array": "c",
-        "34~metric_array": "c",
-        "35~metric_array": "c",
-        "36~metric_array": "c",
-        "37~metric_array": "c",
-        "38~metric_array": "c",
-        "39~metric_array": "c",
-        "40~metric_array": "c",
-        "41~metric_array": "c",
-        "42~metric_array": "c",
-        "43~metric_array": "c",
-        "44~metric_array": "c",
-        "45~metric_array": "c",
-        "46~metric_array": "c",
-        "47~metric_array": "c",
-        "48~metric_array": "c",
-        "49~metric_array": "c",
-        "50~metric_array": "c",
-        "51~metric_array": "c",
-        "52~metric_array": "c",
-        "53~metric_array": "c",
-        "54~metric_array": "c",
-        "55~metric_array": "c",
-        "56~metric_array": "c",
-        "57~metric_array": "c",
-        "58~metric_array": "c",
-        "59~metric_array": "c",
-        "60~metric_array": "c",
-        "61~metric_array": "c",
-        "62~metric_array": "c",
-        "63~metric_array": "c",
-        "64~metric_array": "c",
-        "65~metric_array": "c",
-        "66~metric_array": "c",
-        "67~metric_array": "c"
-      }
-    }
+      "topicPath": "/diagnostics",
+      "expansion": "none"
+    },
+    "AutowareFoxgloveConverter.Vehicle Config!2dr15xl": {}
   },
   "globalVariables": {
     "": "\"\""
@@ -219,7 +160,12 @@
   },
   "layout": {
     "first": "3D!46c57bh",
-    "second": "RawMessages!21rpfci",
+    "second": {
+      "first": "RawMessages!21rpfci",
+      "second": "AutowareFoxgloveConverter.Vehicle Config!2dr15xl",
+      "direction": "column",
+      "splitPercentage": 85.2955787382017
+    },
     "direction": "row",
     "splitPercentage": 79.65260545905707
   }
