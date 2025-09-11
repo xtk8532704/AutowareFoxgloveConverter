@@ -3,12 +3,12 @@
     "3D!46c57bh": {
       "cameraState": {
         "perspective": false,
-        "distance": 103.246330778407,
+        "distance": 103.24633077840681,
         "phi": 0.00005731104651187513,
-        "thetaOffset": -176.43280379920915,
+        "thetaOffset": -176.43280380156887,
         "targetOffset": [
-          5.393415672233242,
-          -10.914898629487833,
+          5.47464460606442,
+          -10.963178821263396,
           -9.994511412196466e-14
         ],
         "target": [
@@ -141,15 +141,8 @@
       },
       "imageMode": {}
     },
-    "RawMessages!21rpfci": {
-      "diffEnabled": false,
-      "diffMethod": "custom",
-      "diffTopicPath": "",
-      "showFullMessageForDiff": false,
-      "topicPath": "/diagnostics",
-      "expansion": "none"
-    },
-    "AutowareFoxgloveConverter.Vehicle Config!2dr15xl": {}
+    "AutowareFoxgloveConverter.Vehicle Config!2dr15xl": {},
+    "AutowareFoxgloveConverter.DLR Diagnostics Result!1rdd8zb": {}
   },
   "globalVariables": {
     "": "\"\""
@@ -161,12 +154,12 @@
   "layout": {
     "first": "3D!46c57bh",
     "second": {
-      "first": "RawMessages!21rpfci",
+      "first": "AutowareFoxgloveConverter.DLR Diagnostics Result!1rdd8zb",
       "second": "AutowareFoxgloveConverter.Vehicle Config!2dr15xl",
       "direction": "column",
-      "splitPercentage": 85.2955787382017
+      "splitPercentage": 80.32786885245902
     },
     "direction": "row",
-    "splitPercentage": 79.65260545905707
+    "splitPercentage": 62.42549552654082
   }
 }

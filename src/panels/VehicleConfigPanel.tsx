@@ -1,7 +1,7 @@
 import { PanelExtensionContext } from "@foxglove/studio";
 import { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { VEHICLE_INFOS, VehicleInfo, setVehicleConfig, getCurrentVehicleConfig } from "./converters/VehicleInfos";
+import { VEHICLE_INFOS, VehicleInfo, setVehicleConfig, getCurrentVehicleConfig } from "../converters/VehicleInfos";
 
 function VehicleConfigPanel({ context }: { context: PanelExtensionContext }): JSX.Element {
   const [selectedVehicle, setSelectedVehicle] = useState<VehicleInfo>(getCurrentVehicleConfig());

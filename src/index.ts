@@ -1,5 +1,6 @@
 import { ExtensionContext } from "@lichtblick/suite";
 
+// Converters
 import {
   convertDetectedObjects,
   convertTrackedObjects,
@@ -8,7 +9,9 @@ import {
 
 import { convertKinematicState } from "./converters/LocalizationConverter";
 
-import { initVehicleConfigPanel } from "./VehicleConfigPanel";
+// Panels
+import { initVehicleConfigPanel } from "./panels/VehicleConfigPanel";
+import { initDLRDiagnosticsResultPanel } from "./panels/DLRResultPanel";
 
 
 export function activate(extensionContext: ExtensionContext): void {
@@ -45,8 +48,6 @@ export function activate(extensionContext: ExtensionContext): void {
     converter: convertDetectedObjects,
   });
 
-  // Planning Converters
-
   // Localization Converters
   extensionContext.registerMessageConverter({
     fromSchemaName: "nav_msgs/msg/Odometry",
@@ -54,11 +55,14 @@ export function activate(extensionContext: ExtensionContext): void {
     converter: convertKinematicState,
   });
 
-
-
-  // Vehicle Select Panel
+  // Panels
   extensionContext.registerPanel({
     name: "Vehicle Config",
     initPanel: initVehicleConfigPanel,
+  });
+
+  extensionContext.registerPanel({
+    name: "DLR Diagnostics Result",
+    initPanel: initDLRDiagnosticsResultPanel,
   });
 }
