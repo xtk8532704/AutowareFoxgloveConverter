@@ -11,7 +11,7 @@ import { convertKinematicState } from "./converters/LocalizationConverter";
 
 // Panels
 import { initVehicleConfigPanel } from "./panels/VehicleConfigPanel";
-import { initDLRDiagnosticsResultPanel } from "./panels/DLRResultPanel";
+import { initDLRDiagnosticsResultPanel } from "./panels/DLRDiagnosticsPanel";
 
 
 export function activate(extensionContext: ExtensionContext): void {

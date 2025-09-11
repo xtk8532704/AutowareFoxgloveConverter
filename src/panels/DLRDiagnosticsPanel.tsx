@@ -1,7 +1,7 @@
-// /driving_log_replayer/diagnostics_result
+// Topic: /driving_log_replayer/diagnostics_results
 // {"Result": {"Success": false, "Summary": "Failed:Condition_0 (Fail), Condition_1 (Success), Condition_2 (Success), Condition_3 (Success), Condition_4 (Success), Condition_5 (Success), Condition_6 (Success), Condition_7 (Success), Condition_8 (Success), Condition_9 (Success), Condition_10 (Success), Condition_11 (Success), Condition_12 (Success), Condition_13 (Success), Condition_14 (Success)"}, "Stamp": {"System": 1755507663.0284886, "ROS": 1690176168.120652}, "Frame": {"Condition_1": {"Result": {"Total": "Success", "Frame": "Success"}, "Info": {"TotalPassed": 3, "Level": "OK"}}}}
 // {"Result": {"Success": true, "Summary": "Passed:Condition_0 (Success), Condition_1 (Success), Condition_2 (Success), Condition_3 (Success), Condition_4 (Success), Condition_5 (Success), Condition_6 (Success), Condition_7 (Success), Condition_8 (Success), Condition_9 (Success), Condition_10 (Success), Condition_11 (Success), Condition_12 (Success), Condition_13 (Success), Condition_14 (Success)"}, "Stamp": {"System": 1755507663.0401201, "ROS": 1690176168.1356387}, "Frame": {"Condition_0": {"Result": {"Total": "Success", "Frame": "Success"}, "Info": {"TotalPassed": 1, "Level": "WARN"}}}}
-// {"Result": {"Success": true, "Summary": "Passed:Condition_0 (Success), Condition_1 (Success), Condition_2 (Success), Condition_3 (Success), Condition_4 (Success), Condition_5 (Success), Condition_6 (Success), Condition_7 (Success), Condition_8 (Success), Condition_9 (Success), Condition_10 (Success), Condition_11 (Success), Condition_12 (Success), Condition_13 (Success), Condition_14 (Success)"}, "Stamp": {"System": 1755507663.0742352, "ROS": 1690176168.1656318}, "Frame": {"Condition_0": {"Result": {"Total": "Success", "Frame": "Success"}, "Info": {"TotalPassed": 2, "Level": "WARN"}}}}
+
 import { PanelExtensionContext } from "@foxglove/studio";
 import { useEffect, useState, useLayoutEffect } from "react";
 import { createRoot } from "react-dom/client";
@@ -27,7 +27,7 @@ interface DLRResultMsg {
 }
 
 function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext }): JSX.Element {
-  const TopicName = "/driving_log_replayer/diagnostics_result";
+  const TopicName = "/driving_log_replayer/diagnostics_results";
   const [result, setResult] = useState<DLRResultMsg | null>(null);
   const [allConditions, setAllConditions] = useState<{[key: string]: any}>({});
   const [currentFrameConditions, setCurrentFrameConditions] = useState<Set<string>>(new Set());
