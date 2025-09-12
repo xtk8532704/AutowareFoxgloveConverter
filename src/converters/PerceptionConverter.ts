@@ -1,4 +1,4 @@
-import { CubePrimitive, SceneUpdate, SpherePrimitive } from "@foxglove/schemas";
+import { CubePrimitive, SceneUpdate, SpherePrimitive, LinePrimitive } from "@foxglove/schemas";
 import { PredictedObjects } from "../msgs/PredictedObjects";
 import { TrackedObjects } from "../msgs/TrackedObjects";
 import { DetectedObjects } from "../msgs/DetectedObjects";
@@ -36,7 +36,7 @@ enum Classification {
   PEDESTRIAN = 7,
 }
 
-function createSceneUpdateMessage(header: Header, spheres: SpherePrimitive[], cubes: CubePrimitive[]): SceneUpdate {
+function createSceneUpdateMessage(header: Header, spheres: SpherePrimitive[], cubes: CubePrimitive[], lines: LinePrimitive[] = []): SceneUpdate {
   return {
     deletions: [],
     entities: [
@@ -49,7 +49,7 @@ function createSceneUpdateMessage(header: Header, spheres: SpherePrimitive[], cu
         metadata: [],
         arrows: [],
         cylinders: [],
-        lines: [],
+        lines: lines,
         spheres: spheres,
         texts: [],
         triangles: [],
@@ -104,7 +104,7 @@ export function convertDetectedObjects(msg: DetectedObjects): SceneUpdate
     return acc;
   }, []);
 
-  return createSceneUpdateMessage(header, [], cubePrimitives);
+  return createSceneUpdateMessage(header, [], cubePrimitives, []);
 }
 
 export function convertTrackedObjects(msg: TrackedObjects): SceneUpdate 
@@ -134,16 +134,16 @@ export function convertTrackedObjects(msg: TrackedObjects): SceneUpdate
     return acc;
   }, []);
 
-  return createSceneUpdateMessage(header, [], cubePrimitives);
+  return createSceneUpdateMessage(header, [], cubePrimitives, []);
 }
 
 export function convertPredictedObjects(msg: PredictedObjects): SceneUpdate 
 {
   const { header, objects } = msg;
 
-  // create same thing but with spheres
-  const spherePrimitives: SpherePrimitive[] = objects.reduce(
-    (acc: SpherePrimitive[], object) => {
+  // create lines for predicted paths - dashed line effect
+  const linePrimitives: LinePrimitive[] = objects.reduce(
+    (acc: LinePrimitive[], object) => {
       const { kinematics, classification } = object;
       const { initial_pose_with_covariance, predicted_paths } = kinematics;
 
@@ -158,20 +158,43 @@ export function convertPredictedObjects(msg: PredictedObjects): SceneUpdate
       const { label } = classification[0];
       const color = colorMap[label as keyof typeof colorMap] ?? { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
 
-      // if the object is not unknown and has a predicted path, draw the path
+      // if the object is not unknown and has a predicted path, draw the first 3 paths
       if (
         label !== Classification.UNKNOWN &&
         Math.floor(initial_pose_with_covariance.pose.position.x) > 0
       ) {
-        const spherePath: SpherePrimitive[] = predicted_paths[0]!.path.map((pose) => {
-          const sphere: SpherePrimitive = {
-            color,
-            size: { x: 0.25, y: 0.25, z: 0.25 },
-            pose,
+        // Display first 3 predicted paths as dashed lines (if available)
+        const pathsToShow = Math.min(3, predicted_paths.length);
+        const alphaValues = [0.7, 0.3, 0.1]; // Transparency for each path
+        
+        for (let pathIndex = 0; pathIndex < pathsToShow; pathIndex++) {
+          const pathPoints = predicted_paths[pathIndex]!.path;
+          const pathColor = {
+            ...color,
+            a: alphaValues[pathIndex]!
           };
-          return sphere;
-        });
-        acc.push(...spherePath);
+          
+          // Create line segments: 1-2, 3-4, 5-6, etc. (skip every other connection)
+          for (let i = 0; i < pathPoints.length - 1; i += 2) {
+            const line: LinePrimitive = {
+              type: 0, // LINE_LIST type - individual line segments
+              pose: {
+                position: { x: 0, y: 0, z: 0 },
+                orientation: { x: 0, y: 0, z: 0, w: 1 }
+              },
+              thickness: 0.1,
+              scale_invariant: false,
+              color: pathColor,
+              colors: [],
+              points: [
+                pathPoints[i]!.position,
+                pathPoints[i + 1]!.position
+              ],
+              indices: []
+            };
+            acc.push(line);
+          }
+        }
       }
       return acc;
     },
@@ -201,5 +224,5 @@ export function convertPredictedObjects(msg: PredictedObjects): SceneUpdate
     return acc;
   }, []);
 
-  return createSceneUpdateMessage(header, spherePrimitives, cubePrimitives);
+  return createSceneUpdateMessage(header, [], cubePrimitives, linePrimitives);
 }
