@@ -1,33 +1,57 @@
 # AutowareFoxgloveConverter
 
+An extension for Foxglove Studio/Lichtblick that provides Autoware message converters and diagnostic panels for better visualization and debugging.
+
 Special thanks to [https://github.com/kminoda/AutowareFoxgloveConverter](https://github.com/kminoda/AutowareFoxgloveConverter) for the inspiration and the code to get started.
 
-Supported message Converters:
-- Perception:
+## Features
+
+### Supported Message Converters
+- **Perception:**
   - [autoware_auto_perception_msgs::msg::DetectedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/DetectedObjects.idl)
   - [autoware_auto_perception_msgs::msg::TrackedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/TrackedObjects.idl)
   - [autoware_auto_perception_msgs::msg::PredictedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/PredictedObjects.idl)
   - [autoware_perception_msgs::msg::DetectedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/DetectedObjects.msg)
   - [autoware_perception_msgs::msg::TrackedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/TrackedObjects.msg)
   - [autoware_perception_msgs::msg::PredictedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/PredictedObjects.msg)
-- Localization:
+- **Localization:**
   - [nav_msgs::msg::Odometry](https://docs.ros2.org/foxy/api/nav_msgs/msg/Odometry.html)
 
-Available Panels:
-- DLR Diagnostics Result: Display `Diagnostics` condition results of [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2).
-- Vehicle Config: Select a vehicle to display the ego vehicle.
+### Available Panels
+- **DLR Diagnostics Result**: Display condition results from [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2)
+- **Vehicle Config**: Select a vehicle to display the ego vehicle
 
-Available LayOut:
-- [DLRLayout](./DLRLayout.json)
+### Available Layouts
+- [DLRLayout.json](./DLRLayout.json) - Pre-configured layout for DLR diagnostics visualization
 
-TODO List:
+## Installation
+
+```bash
+git clone https://github.com/your-username/AutowareFoxgloveConverter.git
+cd AutowareFoxgloveConverter
+bash ./install.sh
+```
+
+## Usage
+
+1. Launch Lichtblick after installation
+2. Visualize your rosbag
+
+## TODO List
 - Draw first 3 predicted paths of prediction_path
 - Converter for autoware_planning_msgs/msg/Path
 - Converter for autoware_internal_planning_msgs/msg/PathWithLaneId
 - Converter for planning_factor
 - Status for DLR planning_factor result
 - Display objects' ID
-- predicted trajectory of MPC
+- Predicted trajectory of MPC
+
+
+
+---
+---
+---
+
 
 ## _A Foxglove Studio Extension_
 
