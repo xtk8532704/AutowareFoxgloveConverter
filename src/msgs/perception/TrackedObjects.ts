@@ -1,3 +1,4 @@
+// autoware_perception_msgs::msg::TrackedObjects
 import { Header } from "../base/Header";
 import { ClassificationLabel } from "../perception/ClassificationLabel";
 import { Point2D } from "../base/Point";

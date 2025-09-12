@@ -38,7 +38,7 @@ bash ./install.sh
 2. Visualize your rosbag
 
 ## TODO List
-- Draw first 3 predicted paths of prediction_path
+- Converter for trajectory
 - Converter for autoware_planning_msgs/msg/Path
 - Converter for autoware_internal_planning_msgs/msg/PathWithLaneId
 - Converter for planning_factor

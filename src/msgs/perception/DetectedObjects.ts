@@ -1,3 +1,4 @@
+// autoware_perception_msgs::msg::DetectedObjects
 import { Header } from "../base/Header";
 import { ClassificationLabel } from "./ClassificationLabel";
 import { Point2D } from "../base/Point";
