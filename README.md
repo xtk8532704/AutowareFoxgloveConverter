@@ -21,8 +21,12 @@ Available LayOut:
 - [DLRLayout](./DLRLayout.json)
 
 TODO List:
+- Draw first 3 predicted paths of prediction_path
+- Converter for autoware_planning_msgs/msg/Path
+- Converter for autoware_internal_planning_msgs/msg/PathWithLaneId
+- Converter for planning_factor
+- Status for DLR planning_factor result
 - Display objects' ID
-- Support planning_factor converter
 - predicted trajectory of MPC
 
 ## _A Foxglove Studio Extension_

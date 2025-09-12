@@ -117,8 +117,6 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
 
   return (
     <div style={{ padding: "16px", fontFamily: "system-ui", height: "100%", overflow: "auto", backgroundColor: "#f8f9fa" }}>
-      <h2 style={{ margin: "0 0 20px 0", color: "#343a40" }}>DLR Diagnostics Result</h2>
-
       {/* Error Display */}
       {error && (
         <div style={{
@@ -133,8 +131,11 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
         </div>
       )}
 
-      {/* Debug Mode Toggle */}
-      <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "10px" }}>
+      {/* Debug Mode Toggle and Status */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
+        <div style={{ fontSize: "12px", color: "#6c757d", fontFamily: "monospace" }}>
+          Status: {result ? "Data received" : "Waiting for data..."}
+        </div>
         <button
           onClick={() => setDebugMode(!debugMode)}
           style={{
@@ -179,10 +180,6 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
           )}
         </div>
       )}
-
-      <div style={{ fontSize: "12px", color: "#6c757d", marginBottom: "10px", fontFamily: "monospace" }}>
-        Status: {result ? "Data received" : "Waiting for data..."}
-      </div>
 
       {result ? (
         <div style={{ backgroundColor: "white", borderRadius: "8px", padding: "20px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}>

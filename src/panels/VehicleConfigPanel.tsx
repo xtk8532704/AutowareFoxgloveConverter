@@ -34,8 +34,6 @@ function VehicleConfigPanel({ context }: { context: PanelExtensionContext }): JS
 
   return (
     <div style={{ padding: "16px", fontFamily: "system-ui" }}>
-      <h3 style={{ margin: "0 0 16px 0" }}>Vehicle Configuration</h3>
-      
       <select 
         value={selectedVehicle.name} 
         onChange={handleVehicleChange}
@@ -60,12 +58,12 @@ function VehicleConfigPanel({ context }: { context: PanelExtensionContext }): JS
         fontSize: "13px",
         marginBottom: "16px"
       }}>
-        <div>Wheelbase: {selectedVehicle.wheel_base}m</div>
-        <div>Track: {selectedVehicle.wheel_tread}m</div>
-        <div>Front: {selectedVehicle.front_overhang}m</div>
-        <div>Rear: {selectedVehicle.rear_overhang}m</div>
-        <div>Left: {selectedVehicle.left_overhang}m</div>
-        <div>Right: {selectedVehicle.right_overhang}m</div>
+        <div>wheel_base: {selectedVehicle.wheel_base}m</div>
+        <div>wheel_tread: {selectedVehicle.wheel_tread}m</div>
+        <div>front_overhang: {selectedVehicle.front_overhang}m</div>
+        <div>rear_overhang: {selectedVehicle.rear_overhang}m</div>
+        <div>left_overhang: {selectedVehicle.left_overhang}m</div>
+        <div>right_overhang: {selectedVehicle.right_overhang}m</div>
       </div>
 
       <div style={{ 

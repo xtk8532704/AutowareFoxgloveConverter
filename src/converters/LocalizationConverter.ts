@@ -2,7 +2,7 @@ import { Odometry } from "../msgs/Odometry";
 import { VehicleInfo, getCurrentVehicleConfig } from "./VehicleInfos";
 import { SceneUpdate, CubePrimitive } from "@foxglove/schemas";
 
-const EgoColor = { r: 0.5, g: 0.5, b: 0.5, a: 0.5 }; // Gray
+const EgoColor = { r: 0.5, g: 0.5, b: 0.5, a: 0.7 }; // Gray
 
 
 function getYawFromQuaternion(q: { x: number; y: number; z: number; w: number }): number {
