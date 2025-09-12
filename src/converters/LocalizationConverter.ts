@@ -1,18 +1,56 @@
-import { Odometry } from "../msgs/Odometry";
-import { VehicleInfo, getCurrentVehicleConfig } from "./VehicleInfos";
+import { Odometry } from "../msgs/localization/Odometry";
+import { VehicleInfo, VEHICLE_INFOS } from "./VehicleInfos";
 import { SceneUpdate, CubePrimitive } from "@foxglove/schemas";
+import { MessageEvent, Immutable, PanelSettings } from "@lichtblick/suite";
 
 const EgoColor = { r: 0.5, g: 0.5, b: 0.5, a: 0.7 }; // Gray
 
+interface LocalizationConfig {
+  selectedVehicle: string;
+}
+
+// Panel Settings for Localization Converter
+export const VehicleInfoSettings: Record<string, PanelSettings<unknown>> = {
+  "3D": {
+    settings: (config?: any) => ({
+      fields: {
+        selectedVehicle: {
+          label: "Vehicle Type",
+          input: "select",
+          value: config?.selectedVehicle ?? "medium_bus",
+          options: VEHICLE_INFOS.map(vehicle => ({
+            label: vehicle.name,
+            value: vehicle.name
+          })),
+          help: "Select the vehicle configuration to use for ego vehicle visualization"
+        }
+      }
+    }),
+    handler: (action, _config) => {
+      if (action.action === "update") {
+        // Handle the settings update
+        console.log("Localization settings updated:", action.payload);
+      }
+    },
+    defaultConfig: {
+      selectedVehicle: "medium_bus"
+    }
+  }
+};
 
 function getYawFromQuaternion(q: { x: number; y: number; z: number; w: number }): number {
     // yaw = atan2(2*(w*z + x*y), 1 - 2*(y*y + z*z))
     return Math.atan2(2 * (q.w * q.z + q.x * q.y), 1 - 2 * (q.y * q.y + q.z * q.z));
 }
 
-export function convertKinematicState(msg: Odometry): SceneUpdate
+export function convertKinematicState(msg: Odometry, event: Immutable<MessageEvent<Odometry>>): SceneUpdate
 {
-    const vehicleInfo: VehicleInfo = getCurrentVehicleConfig();
+    const config = (event.topicConfig as LocalizationConfig) || {
+        selectedVehicle: "medium_bus"
+    };
+
+    // Find the selected vehicle info
+    const vehicleInfo: VehicleInfo = VEHICLE_INFOS.find(v => v.name === config.selectedVehicle) || VEHICLE_INFOS[0]!;
     const { header, pose } = msg;
     const { position, orientation } = pose.pose;
 

@@ -3,3 +3,8 @@ export type Point = {
   y: number;
   z: number;
 };
+
+export type Point2D = {
+  x: number;
+  y: number;
+};

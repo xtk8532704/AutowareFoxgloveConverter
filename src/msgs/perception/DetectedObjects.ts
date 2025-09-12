@@ -1,8 +1,9 @@
-import { Header } from "./Header";
+import { Header } from "../base/Header";
 import { ClassificationLabel } from "./ClassificationLabel";
-import { Point } from "./Point";
-import { Orientation } from "./Orientation";
-import { Dimensions } from "./Dimensions";
+import { Point2D } from "../base/Point";
+import { Dimensions } from "../base/Dimensions";
+import { Pose } from "../base/Pose";
+import { Twist } from "../base/Twist";
 
 export type DetectedObjects = {
   header: Header;
@@ -11,27 +12,13 @@ export type DetectedObjects = {
     classification: ClassificationLabel[];
     kinematics: {
       pose_with_covariance: {
-        pose: {
-          position: Point;
-          orientation: Orientation;
-        };
+        pose: Pose;
         covariance: Float64Array;
       };
       has_position_covariance: boolean;
       orientation_probability: number;
       twist_with_covariance: {
-        twist: {
-          linear: {
-            x: number;
-            y: number;
-            z: number;
-          };
-          angular: {
-            x: number;
-            y: number;
-            z: number;
-          };
-        };
+        twist: Twist;
         covariance: Float64Array;
       };
       has_twist: boolean;
@@ -40,10 +27,7 @@ export type DetectedObjects = {
     shape: {
       type: number;
       footprint: {
-        points: {
-          x: number;
-          y: number;
-        }[];
+        points: Point2D [];
       };
       dimensions: Dimensions;
     };

@@ -1,14 +1,14 @@
 // Basic msgs
-export * from "./Header";
-export * from "./Point";
-export * from "./Orientation";
-export * from "./Dimensions";
-export * from "./Odometry";
+export * from "./base/Header";
+export * from "./base/Point";
+export * from "./base/Orientation";
+export * from "./base/Dimensions";
+export * from "./localization/Odometry";
 
 // Perception
-export * from "./ClassificationLabel";
-export * from "./DetectedObjects";
-export * from "./TrackedObjects";
-export * from "./PredictedObjects";
+export * from "./perception/ClassificationLabel";
+export * from "./perception/DetectedObjects";
+export * from "./perception/TrackedObjects";
+export * from "./perception/PredictedObjects";
 
 // Planning

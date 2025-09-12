@@ -2,14 +2,14 @@
   "configById": {
     "3D!46c57bh": {
       "cameraState": {
-        "perspective": false,
-        "distance": 234.58321917792554,
-        "phi": 0.00005729577951308232,
-        "thetaOffset": -74.58711562861599,
+        "perspective": true,
+        "distance": 61.81739207782722,
+        "phi": 29.022021099066375,
+        "thetaOffset": 82.52007783511034,
         "targetOffset": [
-          40.373184161536166,
-          20.356284962799027,
-          -9.918549363158639e-14
+          1.1430175732198051,
+          -20.52941099354438,
+          -9.757400305842892e-14
         ],
         "target": [
           0,
@@ -34,67 +34,76 @@
         }
       },
       "topics": {
+        "/localization/kinematic_state": {
+          "selectedVehicle": "medium_bus",
+          "showEgoVehicle": true,
+          "vehicleOpacity": 1,
+          "visible": true,
+          "color": "#1801018a",
+          "showOutlines": true,
+          "selectedIdVariable": ""
+        },
         "/awapi/prediction/get/objects": {
           "visible": true
         },
         "/control/autonomous_emergency_braking/virtual_wall": {
-          "visible": true
+          "visible": false
         },
         "/control/autonomous_emergency_braking/debug/markers": {
-          "visible": true
+          "visible": false
         },
         "/control/collision_detector/debug_markers": {
-          "visible": true
+          "visible": false
         },
         "/control/control_validator/debug/marker": {
-          "visible": true
+          "visible": false
         },
         "/planning/mission_planning/route_marker": {
           "visible": true
         },
         "/planning/planning_validator/debug/marker": {
-          "visible": true
+          "visible": false
         },
         "/planning/planning_validator/rear_collision_checker/debug/cluster_points": {
-          "visible": true,
+          "visible": false,
           "colorMode": "flat",
           "colorMap": "turbo"
         },
         "/planning/planning_validator/rear_collision_checker/debug/voxel_points": {
-          "visible": true,
+          "visible": false,
           "colorField": "z",
           "colorMode": "colormap",
           "colorMap": "turbo"
         },
         "/planning/debug/objects_of_interest/static_obstacle_avoidance_right": {
-          "visible": true
+          "visible": false
         },
         "/planning/debug/objects_of_interest/traffic_light": {
-          "visible": true
+          "visible": false
         },
         "/planning/debug/objects_of_interest/static_obstacle_avoidance_left": {
-          "visible": true
+          "visible": false
         },
         "/planning/debug/objects_of_interest/run_out": {
-          "visible": true
+          "visible": false
         },
         "/planning/debug/objects_of_interest/obstacle_stop": {
-          "visible": true
+          "visible": false
         },
         "/planning/debug/objects_of_interest/obstacle_slow_down": {
-          "visible": true
+          "visible": false
         },
         "/planning/debug/objects_of_interest/no_stopping_area": {
-          "visible": true
+          "visible": false
         },
         "/planning/debug/objects_of_interest/intersection": {
-          "visible": true
+          "visible": false
         },
         "/planning/debug/objects_of_interest/lane_change_left": {
-          "visible": true
+          "visible": false
         },
         "/planning/debug/objects_of_interest/obstacle_cruise": {
-          "visible": true
+          "visible": false
         },
         "/map/vector_map_marker": {
           "visible": true
@@ -120,11 +129,6 @@
         "/localization/pose_with_covariance": {
           "visible": false
         },
-        "/localization/kinematic_state": {
-          "visible": true,
-          "color": "#1801018a",
-          "showOutlines": true
-        },
         "/planning/debug/objects_of_interest/lane_change_right": {
           "visible": false
         },
@@ -132,19 +136,19 @@
           "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/intersection": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/detection_area": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/crosswalk": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/blind_spot": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/walkway": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/virtual_traffic_light": {
           "visible": false
@@ -153,19 +157,19 @@
           "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/no_stopping_area": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/stop_line": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/traffic_light": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/virtual_traffic_light": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/walkway": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/motion_planning/motion_velocity_planner/boundary_departure_prevention/debug_markers": {
           "visible": false
@@ -175,6 +179,9 @@
           "colorField": "intensity",
           "colorMode": "colormap",
           "colorMap": "turbo"
+        },
+        "/perception/occupancy_grid_map/map": {
+          "visible": false
         }
       },
       "layers": {},
@@ -189,7 +196,6 @@
       },
       "imageMode": {}
     },
-    "AutowareFoxgloveConverter.Vehicle Config!2dr15xl": {},
     "AutowareFoxgloveConverter.DLR Diagnostics Result!1rdd8zb": {}
   },
   "globalVariables": {
@@ -201,13 +207,8 @@
   },
   "layout": {
     "first": "3D!46c57bh",
-    "second": {
-      "first": "AutowareFoxgloveConverter.DLR Diagnostics Result!1rdd8zb",
-      "second": "AutowareFoxgloveConverter.Vehicle Config!2dr15xl",
-      "direction": "column",
-      "splitPercentage": 80.32786885245902
-    },
+    "second": "AutowareFoxgloveConverter.DLR Diagnostics Result!1rdd8zb",
     "direction": "row",
-    "splitPercentage": 62.42549552654082
+    "splitPercentage": 66.79075014100395
   }
 }

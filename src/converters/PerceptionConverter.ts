@@ -1,11 +1,11 @@
 import { CubePrimitive, SceneUpdate, SpherePrimitive, LinePrimitive } from "@foxglove/schemas";
-import { PredictedObjects } from "../msgs/PredictedObjects";
-import { TrackedObjects } from "../msgs/TrackedObjects";
-import { DetectedObjects } from "../msgs/DetectedObjects";
-import { Header } from "../msgs/Header";
-import { Point } from "../msgs/Point";
-import { Orientation } from "../msgs/Orientation";
-import { Dimensions } from "../msgs/Dimensions";
+import { PredictedObjects } from "../msgs/perception/PredictedObjects";
+import { TrackedObjects } from "../msgs/perception/TrackedObjects";
+import { DetectedObjects } from "../msgs/perception/DetectedObjects";
+import { Header } from "../msgs/base/Header";
+import { Point } from "../msgs/base/Point";
+import { Orientation } from "../msgs/base/Orientation";
+import { Dimensions } from "../msgs/base/Dimensions";
 
 type Color = {
   r: number;

@@ -7,10 +7,9 @@ import {
   convertPredictedObjects,
 } from "./converters/PerceptionConverter";
 
-import { convertKinematicState } from "./converters/LocalizationConverter";
+import { convertKinematicState, VehicleInfoSettings } from "./converters/LocalizationConverter";
 
 // Panels
-import { initVehicleConfigPanel } from "./panels/VehicleConfigPanel";
 import { initDLRDiagnosticsResultPanel } from "./panels/DLRDiagnosticsPanel";
 
 
@@ -53,12 +52,7 @@ export function activate(extensionContext: ExtensionContext): void {
     fromSchemaName: "nav_msgs/msg/Odometry",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertKinematicState,
-  });
-
-  // Panels
-  extensionContext.registerPanel({
-    name: "Vehicle Config",
-    initPanel: initVehicleConfigPanel,
+    panelSettings: VehicleInfoSettings
   });
 
   extensionContext.registerPanel({
