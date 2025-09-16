@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { PanelExtensionContext } from "@foxglove/studio";
 import { createRoot } from "react-dom/client";
-import { VehicleInfo, VEHICLE_INFOS } from '../config/VehicleInfos';
+import { VehicleInfo, VEHICLE_INFOS } from "../config/VehicleInfos";
 
 // Vehicle information management singleton class
 class VehicleInfoManager {
@@ -66,7 +66,7 @@ class VehicleInfoManager {
       width: v.wheel_tread + v.left_overhang + v.right_overhang,
       height: v.vehicle_height,
       wheelBase: v.wheel_base,
-      wheelTread: v.wheel_tread
+      wheelTread: v.wheel_tread,
     };
   }
 
@@ -82,7 +82,7 @@ class VehicleInfoManager {
       frontOverhang: v.front_overhang,
       rearOverhang: v.rear_overhang,
       leftOverhang: v.left_overhang,
-      rightOverhang: v.right_overhang
+      rightOverhang: v.right_overhang,
     };
   }
 }
@@ -92,8 +92,12 @@ export const vehicleInfoManager = VehicleInfoManager.getInstance();
 
 // Vehicle information panel component
 export const VehicleInfoPanel: React.FC = () => {
-  const [selectedVehicle, setSelectedVehicle] = useState<string>(vehicleInfoManager.getCurrentVehicle().name);
-  const [currentVehicle, setCurrentVehicle] = useState<VehicleInfo>(vehicleInfoManager.getCurrentVehicle());
+  const [selectedVehicle, setSelectedVehicle] = useState<string>(
+    vehicleInfoManager.getCurrentVehicle().name
+  );
+  const [currentVehicle, setCurrentVehicle] = useState<VehicleInfo>(
+    vehicleInfoManager.getCurrentVehicle()
+  );
 
   useEffect(() => {
     const handleVehicleChange = (vehicle: VehicleInfo) => {
@@ -112,21 +116,21 @@ export const VehicleInfoPanel: React.FC = () => {
   const dimensions = vehicleInfoManager.getVehicleDimensions();
 
   return (
-    <div style={{ padding: '16px', fontFamily: 'Arial, sans-serif' }}>
+    <div style={{ padding: "16px", fontFamily: "Arial, sans-serif" }}>
       {/* Vehicle type selection */}
-      <div style={{ marginBottom: '20px' }}>
-        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
+      <div style={{ marginBottom: "20px" }}>
+        <label style={{ display: "block", marginBottom: "8px", fontWeight: "bold" }}>
           Vehicle Type:
         </label>
         <select
           value={selectedVehicle}
-          onChange={(e) => handleVehicleChange(e.target.value)}
+          onChange={e => handleVehicleChange(e.target.value)}
           style={{
-            width: '100%',
-            padding: '8px',
-            border: '1px solid #ccc',
-            borderRadius: '4px',
-            fontSize: '14px'
+            width: "100%",
+            padding: "8px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            fontSize: "14px",
           }}
         >
           {VEHICLE_INFOS.map(vehicle => (
@@ -138,26 +142,48 @@ export const VehicleInfoPanel: React.FC = () => {
       </div>
 
       {/* Vehicle dimensions */}
-      <div style={{ marginBottom: '20px' }}>
-        <h4 style={{ marginBottom: '12px', color: '#555' }}>Dimensions</h4>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', fontSize: '14px' }}>
-          <div><strong>Length:</strong> {dimensions.length.toFixed(3)} m</div>
-          <div><strong>Width:</strong> {dimensions.width.toFixed(3)} m</div>
-          <div><strong>Height:</strong> {dimensions.height.toFixed(3)} m</div>
+      <div style={{ marginBottom: "20px" }}>
+        <h4 style={{ marginBottom: "12px", color: "#555" }}>Dimensions</h4>
+        <div
+          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", fontSize: "14px" }}
+        >
+          <div>
+            <strong>Length:</strong> {dimensions.length.toFixed(3)} m
+          </div>
+          <div>
+            <strong>Width:</strong> {dimensions.width.toFixed(3)} m
+          </div>
+          <div>
+            <strong>Height:</strong> {dimensions.height.toFixed(3)} m
+          </div>
         </div>
       </div>
 
       {/* Raw parameters */}
       <div>
-        <h4 style={{ marginBottom: '12px', color: '#555' }}>Raw Parameters</h4>
-        <div style={{ fontSize: '12px', color: '#666', lineHeight: '1.4' }}>
-          <div><strong>wheel_base:</strong> {currentVehicle.wheel_base.toFixed(3)} m</div>
-          <div><strong>wheel_tread:</strong> {currentVehicle.wheel_tread.toFixed(3)} m</div>
-          <div><strong>front_overhang:</strong> {currentVehicle.front_overhang.toFixed(3)} m</div>
-          <div><strong>rear_overhang:</strong> {currentVehicle.rear_overhang.toFixed(3)} m</div>
-          <div><strong>left_overhang:</strong> {currentVehicle.left_overhang.toFixed(3)} m</div>
-          <div><strong>right_overhang:</strong> {currentVehicle.right_overhang.toFixed(3)} m</div>
-          <div><strong>vehicle_height:</strong> {currentVehicle.vehicle_height.toFixed(3)} m</div>
+        <h4 style={{ marginBottom: "12px", color: "#555" }}>Raw Parameters</h4>
+        <div style={{ fontSize: "12px", color: "#666", lineHeight: "1.4" }}>
+          <div>
+            <strong>wheel_base:</strong> {currentVehicle.wheel_base.toFixed(3)} m
+          </div>
+          <div>
+            <strong>wheel_tread:</strong> {currentVehicle.wheel_tread.toFixed(3)} m
+          </div>
+          <div>
+            <strong>front_overhang:</strong> {currentVehicle.front_overhang.toFixed(3)} m
+          </div>
+          <div>
+            <strong>rear_overhang:</strong> {currentVehicle.rear_overhang.toFixed(3)} m
+          </div>
+          <div>
+            <strong>left_overhang:</strong> {currentVehicle.left_overhang.toFixed(3)} m
+          </div>
+          <div>
+            <strong>right_overhang:</strong> {currentVehicle.right_overhang.toFixed(3)} m
+          </div>
+          <div>
+            <strong>vehicle_height:</strong> {currentVehicle.vehicle_height.toFixed(3)} m
+          </div>
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ export type DetectedObjects = {
     shape: {
       type: number;
       footprint: {
-        points: Point2D [];
+        points: Point2D[];
       };
       dimensions: Dimensions;
     };

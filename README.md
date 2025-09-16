@@ -7,6 +7,7 @@ Special thanks to [https://github.com/kminoda/AutowareFoxgloveConverter](https:/
 ## Features
 
 ### Supported Message Converters
+
 - **Perception:**
   - [autoware_auto_perception_msgs::msg::DetectedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/DetectedObjects.idl)
   - [autoware_auto_perception_msgs::msg::TrackedObjects](https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/TrackedObjects.idl)
@@ -16,12 +17,18 @@ Special thanks to [https://github.com/kminoda/AutowareFoxgloveConverter](https:/
   - [autoware_perception_msgs::msg::PredictedObjects](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_perception_msgs/msg/PredictedObjects.msg)
 - **Localization:**
   - [nav_msgs::msg::Odometry](https://docs.ros2.org/foxy/api/nav_msgs/msg/Odometry.html)
+- **Planning:**
+  - [autoware_planning_msgs::msg::Path](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_planning_msgs/msg/Path.msg)
+  - [autoware_internal_planning_msgs::msg::PathWithLaneId](https://github.com/autowarefoundation/autoware_internal_msgs/blob/main/autoware_internal_planning_msgs/msg/PathWithLaneId.msg)
+  - [autoware_planning_msgs::msg::Trajectory](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_planning_msgs/msg/Trajectory.msg)
 
 ### Available Panels
+
 - **DLR Diagnostics Result**: Display condition results from [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2)
 - **Vehicle Config**: Select a vehicle to display the ego vehicle
 
 ### Available Layouts
+
 - [DLRLayout.json](./DLRLayout.json) - Pre-configured layout for DLR diagnostics visualization
 
 ## Installation
@@ -35,23 +42,17 @@ bash ./install.sh
 ## Usage
 
 1. Launch Lichtblick after installation
-2. Visualize your rosbag
+2. Visualize your rosbag with the `DLRLayout` layout.
 
 ## TODO List
-- Converter for trajectory
-- Converter for autoware_planning_msgs/msg/Path
-- Converter for autoware_internal_planning_msgs/msg/PathWithLaneId
+
 - Converter for planning_factor
 - Status for DLR planning_factor result
 - Display objects' ID
-- Predicted trajectory of MPC
-
-
 
 ---
----
----
 
+---
 
 ## _A Foxglove Studio Extension_
 

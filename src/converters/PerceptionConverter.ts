@@ -36,7 +36,12 @@ enum Classification {
   PEDESTRIAN = 7,
 }
 
-function createSceneUpdateMessage(header: Header, spheres: SpherePrimitive[], cubes: CubePrimitive[], lines: LinePrimitive[] = []): SceneUpdate {
+function createSceneUpdateMessage(
+  header: Header,
+  spheres: SpherePrimitive[],
+  cubes: CubePrimitive[],
+  lines: LinePrimitive[] = []
+): SceneUpdate {
   return {
     deletions: [],
     entities: [
@@ -60,8 +65,12 @@ function createSceneUpdateMessage(header: Header, spheres: SpherePrimitive[], cu
   };
 }
 
-function createCubePrimitive(position: Point, orientation: Orientation, color: Color, dimensions: Dimensions): CubePrimitive
-{
+function createCubePrimitive(
+  position: Point,
+  orientation: Orientation,
+  color: Color,
+  dimensions: Dimensions
+): CubePrimitive {
   return {
     color,
     size: { x: dimensions.x, y: dimensions.y, z: dimensions.z },
@@ -77,8 +86,7 @@ function createCubePrimitive(position: Point, orientation: Orientation, color: C
   };
 }
 
-export function convertDetectedObjects(msg: DetectedObjects): SceneUpdate 
-{
+export function convertDetectedObjects(msg: DetectedObjects): SceneUpdate {
   const { header, objects } = msg;
 
   const cubePrimitives: CubePrimitive[] = objects.reduce((acc: CubePrimitive[], object) => {
@@ -98,7 +106,12 @@ export function convertDetectedObjects(msg: DetectedObjects): SceneUpdate
     const { label } = classification[0];
     const color = colorMap[label as keyof typeof colorMap] ?? { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
 
-    const predictedObjectCube: CubePrimitive = createCubePrimitive(position, orientation, color, dimensions);
+    const predictedObjectCube: CubePrimitive = createCubePrimitive(
+      position,
+      orientation,
+      color,
+      dimensions
+    );
 
     acc.push(predictedObjectCube);
     return acc;
@@ -107,8 +120,7 @@ export function convertDetectedObjects(msg: DetectedObjects): SceneUpdate
   return createSceneUpdateMessage(header, [], cubePrimitives, []);
 }
 
-export function convertTrackedObjects(msg: TrackedObjects): SceneUpdate 
-{
+export function convertTrackedObjects(msg: TrackedObjects): SceneUpdate {
   const { header, objects } = msg;
 
   const cubePrimitives: CubePrimitive[] = objects.reduce((acc: CubePrimitive[], object) => {
@@ -128,7 +140,12 @@ export function convertTrackedObjects(msg: TrackedObjects): SceneUpdate
     const { label } = classification[0];
     const color = colorMap[label as keyof typeof colorMap] ?? { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
 
-    const predictedObjectCube: CubePrimitive = createCubePrimitive(position, orientation, color, dimensions);
+    const predictedObjectCube: CubePrimitive = createCubePrimitive(
+      position,
+      orientation,
+      color,
+      dimensions
+    );
 
     acc.push(predictedObjectCube);
     return acc;
@@ -137,69 +154,62 @@ export function convertTrackedObjects(msg: TrackedObjects): SceneUpdate
   return createSceneUpdateMessage(header, [], cubePrimitives, []);
 }
 
-export function convertPredictedObjects(msg: PredictedObjects): SceneUpdate 
-{
+export function convertPredictedObjects(msg: PredictedObjects): SceneUpdate {
   const { header, objects } = msg;
 
   // create lines for predicted paths - dashed line effect
-  const linePrimitives: LinePrimitive[] = objects.reduce(
-    (acc: LinePrimitive[], object) => {
-      const { kinematics, classification } = object;
-      const { initial_pose_with_covariance, predicted_paths } = kinematics;
+  const linePrimitives: LinePrimitive[] = objects.reduce((acc: LinePrimitive[], object) => {
+    const { kinematics, classification } = object;
+    const { initial_pose_with_covariance, predicted_paths } = kinematics;
 
-      if (
-        classification.length === 0 ||
-        !classification[0] ||
-        classification[0].label === undefined
-      ) {
-        return acc;
-      }
+    if (
+      classification.length === 0 ||
+      !classification[0] ||
+      classification[0].label === undefined
+    ) {
+      return acc;
+    }
 
-      const { label } = classification[0];
-      const color = colorMap[label as keyof typeof colorMap] ?? { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
+    const { label } = classification[0];
+    const color = colorMap[label as keyof typeof colorMap] ?? { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
 
-      // if the object is not unknown and has a predicted path, draw the first 3 paths
-      if (
-        label !== Classification.UNKNOWN &&
-        Math.floor(initial_pose_with_covariance.pose.position.x) > 0
-      ) {
-        // Display first 3 predicted paths as dashed lines (if available)
-        const pathsToShow = Math.min(3, predicted_paths.length);
-        const alphaValues = [0.7, 0.3, 0.1]; // Transparency for each path
-        
-        for (let pathIndex = 0; pathIndex < pathsToShow; pathIndex++) {
-          const pathPoints = predicted_paths[pathIndex]!.path;
-          const pathColor = {
-            ...color,
-            a: alphaValues[pathIndex]!
+    // if the object is not unknown and has a predicted path, draw the first 3 paths
+    if (
+      label !== Classification.UNKNOWN &&
+      Math.floor(initial_pose_with_covariance.pose.position.x) > 0
+    ) {
+      // Display first 3 predicted paths as dashed lines (if available)
+      const pathsToShow = Math.min(3, predicted_paths.length);
+      const alphaValues = [0.7, 0.3, 0.1]; // Transparency for each path
+
+      for (let pathIndex = 0; pathIndex < pathsToShow; pathIndex++) {
+        const pathPoints = predicted_paths[pathIndex]!.path;
+        const pathColor = {
+          ...color,
+          a: alphaValues[pathIndex]!,
+        };
+
+        // Create line segments: 1-2, 3-4, 5-6, etc. (skip every other connection)
+        for (let i = 0; i < pathPoints.length - 1; i += 2) {
+          const line: LinePrimitive = {
+            type: 0, // LINE_LIST type - individual line segments
+            pose: {
+              position: { x: 0, y: 0, z: 0 },
+              orientation: { x: 0, y: 0, z: 0, w: 1 },
+            },
+            thickness: 0.1,
+            scale_invariant: false,
+            color: pathColor,
+            colors: [],
+            points: [pathPoints[i]!.position, pathPoints[i + 1]!.position],
+            indices: [],
           };
-          
-          // Create line segments: 1-2, 3-4, 5-6, etc. (skip every other connection)
-          for (let i = 0; i < pathPoints.length - 1; i += 2) {
-            const line: LinePrimitive = {
-              type: 0, // LINE_LIST type - individual line segments
-              pose: {
-                position: { x: 0, y: 0, z: 0 },
-                orientation: { x: 0, y: 0, z: 0, w: 1 }
-              },
-              thickness: 0.1,
-              scale_invariant: false,
-              color: pathColor,
-              colors: [],
-              points: [
-                pathPoints[i]!.position,
-                pathPoints[i + 1]!.position
-              ],
-              indices: []
-            };
-            acc.push(line);
-          }
+          acc.push(line);
         }
       }
-      return acc;
-    },
-    [],
-  );
+    }
+    return acc;
+  }, []);
 
   const cubePrimitives: CubePrimitive[] = objects.reduce((acc: CubePrimitive[], object) => {
     const { kinematics, shape, classification } = object;
@@ -218,7 +228,12 @@ export function convertPredictedObjects(msg: PredictedObjects): SceneUpdate
     const { label } = classification[0];
     const color = colorMap[label as keyof typeof colorMap] ?? { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
 
-    const predictedObjectCube: CubePrimitive = createCubePrimitive(position, orientation, color, dimensions);
+    const predictedObjectCube: CubePrimitive = createCubePrimitive(
+      position,
+      orientation,
+      color,
+      dimensions
+    );
 
     acc.push(predictedObjectCube);
     return acc;

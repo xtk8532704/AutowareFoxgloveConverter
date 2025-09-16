@@ -2,6 +2,7 @@
 // {"Result": {"Success": false, "Summary": "Failed:Condition_0 (Fail), Condition_1 (Success), Condition_2 (Success), Condition_3 (Success), Condition_4 (Success), Condition_5 (Success), Condition_6 (Success), Condition_7 (Success), Condition_8 (Success), Condition_9 (Success), Condition_10 (Success), Condition_11 (Success), Condition_12 (Success), Condition_13 (Success), Condition_14 (Success)"}, "Stamp": {"System": 1755507663.0284886, "ROS": 1690176168.120652}, "Frame": {"Condition_1": {"Result": {"Total": "Success", "Frame": "Success"}, "Info": {"TotalPassed": 3, "Level": "OK"}}}}
 // {"Result": {"Success": true, "Summary": "Passed:Condition_0 (Success), Condition_1 (Success), Condition_2 (Success), Condition_3 (Success), Condition_4 (Success), Condition_5 (Success), Condition_6 (Success), Condition_7 (Success), Condition_8 (Success), Condition_9 (Success), Condition_10 (Success), Condition_11 (Success), Condition_12 (Success), Condition_13 (Success), Condition_14 (Success)"}, "Stamp": {"System": 1755507663.0401201, "ROS": 1690176168.1356387}, "Frame": {"Condition_0": {"Result": {"Total": "Success", "Frame": "Success"}, "Info": {"TotalPassed": 1, "Level": "WARN"}}}}
 
+import React from "react";
 import { PanelExtensionContext } from "@foxglove/studio";
 import { useEffect, useState, useLayoutEffect } from "react";
 import { createRoot } from "react-dom/client";
@@ -26,10 +27,14 @@ interface DLRResultMsg {
   };
 }
 
-function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext }): JSX.Element {
+function DLRDiagnosticsResultPanel({
+  context,
+}: {
+  context: PanelExtensionContext;
+}): React.JSX.Element {
   const TopicName = "/driving_log_replayer/diagnostics_results";
   const [result, setResult] = useState<DLRResultMsg | null>(null);
-  const [allConditions, setAllConditions] = useState<{[key: string]: any}>({});
+  const [allConditions, setAllConditions] = useState<{ [key: string]: any }>({});
   const [currentFrameConditions, setCurrentFrameConditions] = useState<Set<string>>(new Set());
   const [lastRawMessage, setLastRawMessage] = useState<any>(null);
   const [debugMode, setDebugMode] = useState(false);
@@ -37,13 +42,12 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
   const [renderDone, setRenderDone] = useState<(() => void) | undefined>();
   const [conditionOrder, setConditionOrder] = useState<string[]>([]); // New
 
-
   useLayoutEffect(() => {
     context.onRender = (renderState, done) => {
       setRenderDone(() => done);
 
       console.log("RenderState:", renderState);
-      
+
       try {
         if (renderState.currentFrame) {
           for (const msgEvent of renderState.currentFrame) {
@@ -58,7 +62,7 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
                 setResult(data);
 
                 if (conditionOrder.length === 0 && data.Result.Summary) {
-                  const summaryText = data.Result.Summary.replace(/^(Failed:|Passed:)/, '');
+                  const summaryText = data.Result.Summary.replace(/^(Failed:|Passed:)/, "");
                   const conditionMatches = summaryText.match(/Condition_\d+/g);
                   if (conditionMatches) {
                     setConditionOrder(conditionMatches);
@@ -68,14 +72,13 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
                 if (data.Frame) {
                   setAllConditions(prev => ({
                     ...prev,
-                    ...data.Frame
+                    ...data.Frame,
                   }));
                   setCurrentFrameConditions(new Set(Object.keys(data.Frame)));
-                }
-                else {
+                } else {
                   setCurrentFrameConditions(new Set());
                 }
-                
+
                 setError(null);
               } else {
                 const errorMsg = "Parsed data but missing Result field";
@@ -94,9 +97,9 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
     };
 
     context.watch("currentFrame");
-  
+
     context.subscribe([{ topic: TopicName }]);
-    
+
     console.log(`Subscribed to ${TopicName}`);
   }, [context]);
 
@@ -116,23 +119,40 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
   };
 
   return (
-    <div style={{ padding: "16px", fontFamily: "system-ui", height: "100%", overflow: "auto", backgroundColor: "#f8f9fa" }}>
+    <div
+      style={{
+        padding: "16px",
+        fontFamily: "system-ui",
+        height: "100%",
+        overflow: "auto",
+        backgroundColor: "#f8f9fa",
+      }}
+    >
       {/* Error Display */}
       {error && (
-        <div style={{
-          backgroundColor: "#f8d7da",
-          border: "1px solid #f5c6cb",
-          borderRadius: "6px",
-          padding: "12px",
-          marginBottom: "20px",
-          color: "#721c24"
-        }}>
+        <div
+          style={{
+            backgroundColor: "#f8d7da",
+            border: "1px solid #f5c6cb",
+            borderRadius: "6px",
+            padding: "12px",
+            marginBottom: "20px",
+            color: "#721c24",
+          }}
+        >
           <strong>Error:</strong> {error}
         </div>
       )}
 
       {/* Debug Mode Toggle and Status */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "10px",
+        }}
+      >
         <div style={{ fontSize: "12px", color: "#6c757d", fontFamily: "monospace" }}>
           Status: {result ? "Data received" : "Waiting for data..."}
         </div>
@@ -145,7 +165,7 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
             backgroundColor: debugMode ? "#6c757d" : "white",
             color: debugMode ? "white" : "#6c757d",
             cursor: "pointer",
-            fontSize: "12px"
+            fontSize: "12px",
           }}
         >
           {debugMode ? "Hide Debug" : "Show Debug"}
@@ -154,98 +174,127 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
 
       {/* Debug Mode Content */}
       {debugMode && (
-        <div style={{
-          backgroundColor: "#fff",
-          border: "1px solid #e9ecef",
-          borderRadius: "6px",
-          padding: "12px",
-          marginBottom: "20px",
-          fontSize: "12px",
-          fontFamily: "monospace",
-          whiteSpace: "pre-wrap",
-          wordBreak: "break-word",
-          color: "#495057"
-        }}>
-          <div style={{ fontWeight: "bold", marginBottom: "6px", fontFamily: "system-ui", color: "#6c757d" }}>
+        <div
+          style={{
+            backgroundColor: "#fff",
+            border: "1px solid #e9ecef",
+            borderRadius: "6px",
+            padding: "12px",
+            marginBottom: "20px",
+            fontSize: "12px",
+            fontFamily: "monospace",
+            whiteSpace: "pre-wrap",
+            wordBreak: "break-word",
+            color: "#495057",
+          }}
+        >
+          <div
+            style={{
+              fontWeight: "bold",
+              marginBottom: "6px",
+              fontFamily: "system-ui",
+              color: "#6c757d",
+            }}
+          >
             Raw Message JSON:
           </div>
           {lastRawMessage ? (
-            <pre style={{ margin: 0 }}>
-              {JSON.stringify(lastRawMessage, null, 2)}
-            </pre>
+            <pre style={{ margin: 0 }}>{JSON.stringify(lastRawMessage, null, 2)}</pre>
           ) : (
-            <div style={{ fontStyle: "italic", color: "#adb5bd" }}>
-              No message received yet...
-            </div>
+            <div style={{ fontStyle: "italic", color: "#adb5bd" }}>No message received yet...</div>
           )}
         </div>
       )}
 
       {result ? (
-        <div style={{ backgroundColor: "white", borderRadius: "8px", padding: "20px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}>
-          {/* Overall Status */}
-          <div style={{
-            textAlign: "center",
-            padding: "20px",
-            marginBottom: "24px",
-            backgroundColor: getStatusColor(result.Result.Success) + "15",
+        <div
+          style={{
+            backgroundColor: "white",
             borderRadius: "8px",
-            border: `3px solid ${getStatusColor(result.Result.Success)}`
-          }}>
-            <div style={{ 
-              fontWeight: "bold", 
-              fontSize: "24px", 
-              color: getStatusColor(result.Result.Success)
-            }}>
+            padding: "20px",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+          }}
+        >
+          {/* Overall Status */}
+          <div
+            style={{
+              textAlign: "center",
+              padding: "20px",
+              marginBottom: "24px",
+              backgroundColor: getStatusColor(result.Result.Success) + "15",
+              borderRadius: "8px",
+              border: `3px solid ${getStatusColor(result.Result.Success)}`,
+            }}
+          >
+            <div
+              style={{
+                fontWeight: "bold",
+                fontSize: "24px",
+                color: getStatusColor(result.Result.Success),
+              }}
+            >
               {result.Result.Success ? "SUCCESS" : "FAILURE"}
             </div>
           </div>
 
           {/* Condition History */}
           <div style={{ display: "grid", gap: "12px" }}>
-            {(conditionOrder.length > 0 
-              ? conditionOrder.filter(name => allConditions[name]).map(name => [name, allConditions[name]])
+            {(conditionOrder.length > 0
+              ? conditionOrder
+                  .filter(name => allConditions[name])
+                  .map(name => [name, allConditions[name]])
               : Object.entries(allConditions)
             ).map(([conditionName, details]) => {
               const isCurrentFrame = currentFrameConditions.has(conditionName);
               return (
-                <div key={conditionName} style={{
-                  padding: "16px",
-                  backgroundColor: isCurrentFrame ? "#f8f9fa" : "#f1f3f4",
-                  borderRadius: "8px",
-                  border: "1px solid #e9ecef",
-                  opacity: isCurrentFrame ? 1 : 0.7
-                }}>
-                  <div style={{ 
-                    fontWeight: "bold", 
-                    fontSize: "16px", 
-                    marginBottom: "12px", 
-                    color: isCurrentFrame ? "#495057" : "#6c757d"
-                  }}>
+                <div
+                  key={conditionName}
+                  style={{
+                    padding: "16px",
+                    backgroundColor: isCurrentFrame ? "#f8f9fa" : "#f1f3f4",
+                    borderRadius: "8px",
+                    border: "1px solid #e9ecef",
+                    opacity: isCurrentFrame ? 1 : 0.7,
+                  }}
+                >
+                  <div
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      marginBottom: "12px",
+                      color: isCurrentFrame ? "#495057" : "#6c757d",
+                    }}
+                  >
                     {conditionName}
                   </div>
 
-                  <div style={{
-                    display: "flex", 
-                    gap: "16px",
-                    marginBottom: "12px"
-                  }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      marginBottom: "12px",
+                    }}
+                  >
                     <div style={{ flex: 1 }}>
                       <span style={{ fontSize: "12px", color: "#6c757d" }}>Total Result: </span>
-                      <span style={{ 
-                        fontWeight: "bold", 
-                        color: getStatusColor(details.Result.Total)
-                      }}>
+                      <span
+                        style={{
+                          fontWeight: "bold",
+                          color: getStatusColor(details.Result.Total),
+                        }}
+                      >
                         {details.Result.Total}
                       </span>
                     </div>
 
                     <div style={{ flex: 1 }}>
                       <span style={{ fontSize: "12px", color: "#6c757d" }}>Frame Result: </span>
-                      <span style={{ 
-                        fontWeight: "bold", 
-                        color: getStatusColor(details.Result.Frame)
-                      }}>
+                      <span
+                        style={{
+                          fontWeight: "bold",
+                          color: getStatusColor(details.Result.Frame),
+                        }}
+                      >
                         {details.Result.Frame}
                       </span>
                     </div>
@@ -256,7 +305,8 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
                     <div style={{ fontSize: "13px", color: "#495057" }}>
                       {Object.entries(details.Info).map(([key, value]) => (
                         <div key={key} style={{ marginBottom: "4px" }}>
-                          <span style={{ fontWeight: "500", color: "#6c757d" }}>{key}:</span> {String(value)}
+                          <span style={{ fontWeight: "500", color: "#6c757d" }}>{key}:</span>{" "}
+                          {String(value)}
                         </div>
                       ))}
                     </div>
@@ -267,25 +317,41 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
           </div>
 
           {/* Timestamps */}
-          <div style={{
-            fontSize: "12px", color: "#6c757d", borderTop: "1px solid #e9ecef",
-            paddingTop: "12px", marginTop: "20px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px"
-          }}>
+          <div
+            style={{
+              fontSize: "12px",
+              color: "#6c757d",
+              borderTop: "1px solid #e9ecef",
+              paddingTop: "12px",
+              marginTop: "20px",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "8px",
+            }}
+          >
             <div>
-              <strong>System Timestamp:</strong><br />
+              <strong>System Timestamp:</strong>
+              <br />
               {result.Stamp.System.toFixed(6)}s
             </div>
             <div>
-              <strong>ROS Timestamp:</strong><br />
+              <strong>ROS Timestamp:</strong>
+              <br />
               {result.Stamp.ROS.toFixed(6)}s
             </div>
           </div>
         </div>
       ) : (
-        <div style={{
-          backgroundColor: "white", borderRadius: "8px", padding: "40px",
-          textAlign: "center", color: "#6c757d", fontStyle: "italic"
-        }}>
+        <div
+          style={{
+            backgroundColor: "white",
+            borderRadius: "8px",
+            padding: "40px",
+            textAlign: "center",
+            color: "#6c757d",
+            fontStyle: "italic",
+          }}
+        >
           <div>Waiting for diagnostics data...</div>
           <div style={{ fontSize: "12px", marginTop: "8px" }}>
             Listening to: /driving_log_replayer/diagnostics_result

@@ -15,7 +15,10 @@
     "lint": "eslint --report-unused-disable-directives --fix .",
     "local-install": "lichtblick-extension install",
     "package": "lichtblick-extension package",
-    "pretest": "lichtblick-extension pretest"
+    "pretest": "lichtblick-extension pretest",
+    "pre-commit:install": "pre-commit install",
+    "pre-commit:run": "pre-commit run --all-files",
+    "pre-commit:update": "pre-commit autoupdate"
   },
   "devDependencies": {
     "@foxglove/eslint-plugin": "1.0.1",
@@ -34,6 +37,7 @@
     "eslint-plugin-prettier": "5.0.1",
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
+    "pre-commit": "^1.2.2",
     "prettier": "3.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",

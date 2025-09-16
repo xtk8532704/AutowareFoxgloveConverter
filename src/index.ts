@@ -19,7 +19,6 @@ import {
 import { initDLRDiagnosticsResultPanel } from "./panels/DLRDiagnosticsPanel";
 import { initVehicleInfoPanel } from "./panels/VehicleInfoPanel";
 
-
 export function activate(extensionContext: ExtensionContext): void {
   // Perception Converters
   extensionContext.registerMessageConverter({
@@ -59,7 +58,7 @@ export function activate(extensionContext: ExtensionContext): void {
     fromSchemaName: "nav_msgs/msg/Odometry",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertKinematicState,
-    panelSettings: VehicleInfoSettings
+    panelSettings: VehicleInfoSettings,
   });
 
   // Planning Converters
@@ -67,21 +66,21 @@ export function activate(extensionContext: ExtensionContext): void {
     fromSchemaName: "autoware_planning_msgs/msg/Path",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertPath,
-    panelSettings: PathSettings
+    panelSettings: PathSettings,
   });
 
   extensionContext.registerMessageConverter({
     fromSchemaName: "autoware_internal_planning_msgs/msg/PathWithLaneId",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertPathWithLaneId,
-    panelSettings: PathWithLaneIdSettings
+    panelSettings: PathWithLaneIdSettings,
   });
 
   extensionContext.registerMessageConverter({
     fromSchemaName: "autoware_planning_msgs/msg/Trajectory",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertTrajectory,
-    panelSettings: TrajectorySettings
+    panelSettings: TrajectorySettings,
   });
 
   extensionContext.registerPanel({

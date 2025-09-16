@@ -7,11 +7,11 @@ export type PathWithLaneId = {
   header: Header;
   points: {
     point: {
-        pose: Pose;
-        longitudinal_velocity_mps: number;
-        lateral_velocity_mps: number;
-        heading_rate_rps: number;
-        is_final: boolean;
+      pose: Pose;
+      longitudinal_velocity_mps: number;
+      lateral_velocity_mps: number;
+      heading_rate_rps: number;
+      is_final: boolean;
     };
     lane_ids: number[];
   }[];
