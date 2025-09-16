@@ -2,13 +2,26 @@
   "configById": {
     "3D!46c57bh": {
       "cameraState": {
-        "perspective": false,
-        "distance": 45.44146361586274,
-        "phi": 3.812462738258978,
-        "thetaOffset": -114.70347705830122,
-        "targetOffset": [15.470802116327881, 12.13512623982973, 4.681859866212956e-15],
-        "target": [0, 0, 0],
-        "targetOrientation": [0, 0, 0, 1],
+        "perspective": true,
+        "distance": 98.08401423914366,
+        "phi": 6.717152602101905,
+        "thetaOffset": -165.89863590853483,
+        "targetOffset": [
+          5.221476326431677,
+          -2.9483194788862814,
+          4.678869561552051e-15
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -1446,7 +1459,7 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": "Off",
+          "viewDrivableArea": "On",
           "drivableAreaAlpha": 0.1,
           "drivableAreaColor": {
             "r": 0,
