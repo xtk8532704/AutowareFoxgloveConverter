@@ -5,12 +5,19 @@ import {
   convertDetectedObjects,
   convertTrackedObjects,
   convertPredictedObjects,
-} from "./converters/PerceptionConverter";
-
-import { convertKinematicState, VehicleInfoSettings } from "./converters/LocalizationConverter";
+  convertKinematicState,
+  VehicleInfoSettings,
+  convertPath,
+  convertPathWithLaneId,
+  convertTrajectory,
+  PathSettings,
+  PathWithLaneIdSettings,
+  TrajectorySettings,
+} from "./converters";
 
 // Panels
 import { initDLRDiagnosticsResultPanel } from "./panels/DLRDiagnosticsPanel";
+import { initVehicleInfoPanel } from "./panels/VehicleInfoPanel";
 
 
 export function activate(extensionContext: ExtensionContext): void {
@@ -55,8 +62,35 @@ export function activate(extensionContext: ExtensionContext): void {
     panelSettings: VehicleInfoSettings
   });
 
+  // Planning Converters
+  extensionContext.registerMessageConverter({
+    fromSchemaName: "autoware_planning_msgs/msg/Path",
+    toSchemaName: "foxglove.SceneUpdate",
+    converter: convertPath,
+    panelSettings: PathSettings
+  });
+
+  extensionContext.registerMessageConverter({
+    fromSchemaName: "autoware_internal_planning_msgs/msg/PathWithLaneId",
+    toSchemaName: "foxglove.SceneUpdate",
+    converter: convertPathWithLaneId,
+    panelSettings: PathWithLaneIdSettings
+  });
+
+  extensionContext.registerMessageConverter({
+    fromSchemaName: "autoware_planning_msgs/msg/Trajectory",
+    toSchemaName: "foxglove.SceneUpdate",
+    converter: convertTrajectory,
+    panelSettings: TrajectorySettings
+  });
+
   extensionContext.registerPanel({
     name: "DLR Diagnostics Result",
     initPanel: initDLRDiagnosticsResultPanel,
+  });
+
+  extensionContext.registerPanel({
+    name: "Vehicle Info",
+    initPanel: initVehicleInfoPanel,
   });
 }

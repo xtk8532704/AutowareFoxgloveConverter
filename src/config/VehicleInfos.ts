@@ -1,3 +1,5 @@
+// PanelSettings is no longer needed in this file
+
 export interface VehicleInfo {
     name: string;
     wheel_base: number;
@@ -7,6 +9,10 @@ export interface VehicleInfo {
     left_overhang: number;
     right_overhang: number;
     vehicle_height: number;
+}
+
+export interface VehicleConfig {
+    selectedVehicle: string;
 }
 
 export const VEHICLE_INFOS: VehicleInfo[] = [
@@ -61,3 +67,6 @@ export const VEHICLE_INFOS: VehicleInfo[] = [
         vehicle_height: 1.87,
     }
 ];
+
+// VehicleInfoSettings is now managed by VehicleInfoPanel.tsx
+// This file only contains the vehicle data definitions

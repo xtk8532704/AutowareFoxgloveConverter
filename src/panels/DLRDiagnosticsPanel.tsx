@@ -35,7 +35,7 @@ function DLRDiagnosticsResultPanel({ context }: { context: PanelExtensionContext
   const [debugMode, setDebugMode] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [renderDone, setRenderDone] = useState<(() => void) | undefined>();
-  const [conditionOrder, setConditionOrder] = useState<string[]>([]); // 新增
+  const [conditionOrder, setConditionOrder] = useState<string[]>([]); // New
 
 
   useLayoutEffect(() => {
