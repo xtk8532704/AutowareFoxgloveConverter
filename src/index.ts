@@ -16,7 +16,7 @@ import {
 } from "./converters";
 
 // Panels
-import { initDLRDiagnosticsResultPanel } from "./panels/DLRDiagnosticsPanel";
+import { initDLRDiagnosticsPanel, initDLRPlanningFactorPanel } from "./panels/DLRResultPanel";
 import { initVehicleInfoPanel } from "./panels/VehicleInfoPanel";
 
 export function activate(extensionContext: ExtensionContext): void {
@@ -84,8 +84,13 @@ export function activate(extensionContext: ExtensionContext): void {
   });
 
   extensionContext.registerPanel({
-    name: "DLR Diagnostics Result",
-    initPanel: initDLRDiagnosticsResultPanel,
+    name: "DLR Diagnostics",
+    initPanel: initDLRDiagnosticsPanel,
+  });
+
+  extensionContext.registerPanel({
+    name: "DLR Planning Factor",
+    initPanel: initDLRPlanningFactorPanel,
   });
 
   extensionContext.registerPanel({

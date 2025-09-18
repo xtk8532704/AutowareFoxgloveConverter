@@ -24,7 +24,8 @@ Special thanks to [https://github.com/kminoda/AutowareFoxgloveConverter](https:/
 
 ### Available Panels
 
-- **DLR Diagnostics Result**: Display condition results from [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2)
+- **DLR Diagnostics**: Display diagnostics condition results of [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2)
+- **DLR Planning Factor**: Display planning factor condition results of [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2)
 - **Vehicle Config**: Select a vehicle to display the ego vehicle
 
 ### Available Layouts
