@@ -48,7 +48,6 @@ bash ./install.sh
 ## TODO List
 
 - Converter for planning_factor
-- Status for DLR planning_factor result
 - Display objects' ID
 
 ---
