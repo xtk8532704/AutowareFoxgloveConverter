@@ -1,4 +1,10 @@
-import { CubePrimitive, SceneUpdate, SpherePrimitive, LinePrimitive } from "@foxglove/schemas";
+import {
+  CubePrimitive,
+  SceneUpdate,
+  SpherePrimitive,
+  LinePrimitive,
+  TextPrimitive,
+} from "@foxglove/schemas";
 import { PredictedObjects } from "../msgs/perception/PredictedObjects";
 import { TrackedObjects } from "../msgs/perception/TrackedObjects";
 import { DetectedObjects } from "../msgs/perception/DetectedObjects";
@@ -6,12 +12,35 @@ import { Header } from "../msgs/base/Header";
 import { Point } from "../msgs/base/Point";
 import { Orientation } from "../msgs/base/Orientation";
 import { Dimensions } from "../msgs/base/Dimensions";
+import { Immutable, MessageEvent } from "@lichtblick/suite";
 
 type Color = {
   r: number;
   g: number;
   b: number;
   a: number;
+};
+
+interface PerceptionGUISettings {
+  viewPathObjectId: string;
+}
+
+export const PerceptionSettings: Record<string, any> = {
+  "3D": {
+    settings: (config?: unknown) => ({
+      fields: {
+        viewPathObjectId: {
+          label: "View Object ID",
+          input: "toggle",
+          value: (config as PerceptionGUISettings)?.viewPathObjectId ?? "Off",
+          options: ["Off", "On"],
+          help: "Show/hide object ID text",
+        },
+      },
+    }),
+    handler: () => {},
+    defaultConfig: {},
+  },
 };
 
 const colorMap: Record<number, Color> = {
@@ -40,7 +69,8 @@ function createSceneUpdateMessage(
   header: Header,
   spheres: SpherePrimitive[],
   cubes: CubePrimitive[],
-  lines: LinePrimitive[] = []
+  lines: LinePrimitive[] = [],
+  texts: TextPrimitive[] = []
 ): SceneUpdate {
   return {
     deletions: [],
@@ -56,7 +86,7 @@ function createSceneUpdateMessage(
         cylinders: [],
         lines: lines,
         spheres: spheres,
-        texts: [],
+        texts: texts,
         triangles: [],
         models: [],
         cubes: cubes,
@@ -120,11 +150,18 @@ export function convertDetectedObjects(msg: DetectedObjects): SceneUpdate {
   return createSceneUpdateMessage(header, [], cubePrimitives, []);
 }
 
-export function convertTrackedObjects(msg: TrackedObjects): SceneUpdate {
+export function convertTrackedObjects(
+  msg: TrackedObjects,
+  event: Immutable<MessageEvent<TrackedObjects>>
+): SceneUpdate {
+  const guiSettings = event.topicConfig as PerceptionGUISettings;
   const { header, objects } = msg;
 
-  const cubePrimitives: CubePrimitive[] = objects.reduce((acc: CubePrimitive[], object) => {
-    const { kinematics, shape, classification } = object;
+  const cubePrimitives: CubePrimitive[] = [];
+  const textPrimitives: TextPrimitive[] = [];
+
+  objects.forEach(object => {
+    const { object_id, kinematics, shape, classification } = object;
     const { pose_with_covariance } = kinematics;
     const { position, orientation } = pose_with_covariance.pose;
     const { dimensions } = shape;
@@ -134,7 +171,7 @@ export function convertTrackedObjects(msg: TrackedObjects): SceneUpdate {
       !classification[0] ||
       classification[0].label === undefined
     ) {
-      return acc;
+      return;
     }
 
     const { label } = classification[0];
@@ -147,14 +184,41 @@ export function convertTrackedObjects(msg: TrackedObjects): SceneUpdate {
       dimensions
     );
 
-    acc.push(predictedObjectCube);
-    return acc;
-  }, []);
+    cubePrimitives.push(predictedObjectCube);
 
-  return createSceneUpdateMessage(header, [], cubePrimitives, []);
+    if (guiSettings?.viewPathObjectId === "On") {
+      const objectIdHex = Array.from(object_id.uuid)
+        .map(byte => byte.toString(16).padStart(2, "0"))
+        .join("");
+
+      const textPrimitive: TextPrimitive = {
+        pose: {
+          position: {
+            x: position.x,
+            y: position.y,
+            z: position.z + dimensions.z / 2 + 0.5,
+          },
+          orientation: { x: 0, y: 0, z: 0, w: 1 },
+        },
+        billboard: true,
+        font_size: 0.3,
+        scale_invariant: false,
+        color: { r: 1.0, g: 1.0, b: 1.0, a: 1.0 },
+        text: objectIdHex.substring(0, 8),
+      };
+
+      textPrimitives.push(textPrimitive);
+    }
+  });
+
+  return createSceneUpdateMessage(header, [], cubePrimitives, [], textPrimitives);
 }
 
-export function convertPredictedObjects(msg: PredictedObjects): SceneUpdate {
+export function convertPredictedObjects(
+  msg: PredictedObjects,
+  event: Immutable<MessageEvent<PredictedObjects>>
+): SceneUpdate {
+  const guiSettings = event.topicConfig as PerceptionGUISettings;
   const { header, objects } = msg;
 
   // create lines for predicted paths - dashed line effect
@@ -211,8 +275,11 @@ export function convertPredictedObjects(msg: PredictedObjects): SceneUpdate {
     return acc;
   }, []);
 
-  const cubePrimitives: CubePrimitive[] = objects.reduce((acc: CubePrimitive[], object) => {
-    const { kinematics, shape, classification } = object;
+  const cubePrimitives: CubePrimitive[] = [];
+  const textPrimitives: TextPrimitive[] = [];
+
+  objects.forEach(object => {
+    const { object_id, kinematics, shape, classification } = object;
     const { initial_pose_with_covariance } = kinematics;
     const { position, orientation } = initial_pose_with_covariance.pose;
     const { dimensions } = shape;
@@ -222,7 +289,7 @@ export function convertPredictedObjects(msg: PredictedObjects): SceneUpdate {
       !classification[0] ||
       classification[0].label === undefined
     ) {
-      return acc;
+      return;
     }
 
     const { label } = classification[0];
@@ -235,9 +302,34 @@ export function convertPredictedObjects(msg: PredictedObjects): SceneUpdate {
       dimensions
     );
 
-    acc.push(predictedObjectCube);
-    return acc;
-  }, []);
+    cubePrimitives.push(predictedObjectCube);
 
-  return createSceneUpdateMessage(header, [], cubePrimitives, linePrimitives);
+    if (guiSettings?.viewPathObjectId === "On") {
+      const objectIdHex = Array.from(object_id.uuid)
+        .map(byte => byte.toString(16).padStart(2, "0"))
+        .join("");
+
+      const textPrimitive: TextPrimitive = {
+        pose: {
+          position: {
+            x: position.x,
+            y: position.y,
+            z: position.z + dimensions.z / 2 + 0.5,
+          },
+          orientation: { x: 0, y: 0, z: 0, w: 1 },
+        },
+        billboard: true,
+        font_size: 0.3,
+        scale_invariant: false,
+        color: { r: 1.0, g: 1.0, b: 1.0, a: 1.0 },
+        text: objectIdHex.substring(0, 8),
+      };
+
+      textPrimitives.push(textPrimitive);
+    }
+  });
+
+  return createSceneUpdateMessage(header, [], cubePrimitives, linePrimitives, textPrimitives);
 }
+
+export type { PerceptionGUISettings };

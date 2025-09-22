@@ -5,6 +5,7 @@ import {
   convertDetectedObjects,
   convertTrackedObjects,
   convertPredictedObjects,
+  PerceptionSettings,
   convertKinematicState,
   VehicleInfoSettings,
   convertPath,
@@ -25,22 +26,26 @@ export function activate(extensionContext: ExtensionContext): void {
     fromSchemaName: "autoware_auto_perception_msgs/msg/PredictedObjects",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertPredictedObjects,
+    panelSettings: PerceptionSettings,
   });
   extensionContext.registerMessageConverter({
     fromSchemaName: "autoware_perception_msgs/msg/PredictedObjects",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertPredictedObjects,
+    panelSettings: PerceptionSettings,
   });
 
   extensionContext.registerMessageConverter({
     fromSchemaName: "autoware_auto_perception_msgs/msg/TrackedObjects",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertTrackedObjects,
+    panelSettings: PerceptionSettings,
   });
   extensionContext.registerMessageConverter({
     fromSchemaName: "autoware_perception_msgs/msg/TrackedObjects",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertTrackedObjects,
+    panelSettings: PerceptionSettings,
   });
   extensionContext.registerMessageConverter({
     fromSchemaName: "autoware_auto_perception_msgs/msg/DetectedObjects",

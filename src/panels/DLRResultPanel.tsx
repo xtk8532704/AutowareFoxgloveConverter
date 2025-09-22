@@ -37,11 +37,9 @@ const getStatusColor = (status: boolean | string) => {
 const parseConditionNames = (summary: string): string[] => {
   const summaryText = summary.replace(/^(Failed:|Passed:)/, "");
   const conditionMatches = summaryText.match(/([^,]+?)\s*\([^)]+\)/g);
-  
+
   if (conditionMatches) {
-    return conditionMatches.map((match: string) => 
-      match.replace(/\s*\([^)]+\)$/, '').trim()
-    );
+    return conditionMatches.map((match: string) => match.replace(/\s*\([^)]+\)$/, "").trim());
   }
   return [];
 };
@@ -192,7 +190,8 @@ const ConditionDisplay: React.FC<{
           color: "#856404",
         }}
       >
-        <strong>Note:</strong> There is no details for this condition, possibly due to the relevant topic not publishing any information.
+        <strong>Note:</strong> There is no details for this condition, possibly due to the relevant
+        topic not publishing any information.
       </div>
     )}
 
@@ -201,8 +200,7 @@ const ConditionDisplay: React.FC<{
       <div style={{ fontSize: "13px", color: "#495057" }}>
         {Object.entries(details.Info).map(([key, value]) => (
           <div key={key} style={{ marginBottom: "4px" }}>
-            <span style={{ fontWeight: "500", color: "#6c757d" }}>{key}:</span>{" "}
-            {String(value)}
+            <span style={{ fontWeight: "500", color: "#6c757d" }}>{key}:</span> {String(value)}
           </div>
         ))}
       </div>
@@ -297,7 +295,14 @@ function DLRDiagnosticsPanel({ context }: { context: PanelExtensionContext }): R
             color: "#495057",
           }}
         >
-          <div style={{ fontWeight: "bold", marginBottom: "6px", fontFamily: "system-ui", color: "#6c757d" }}>
+          <div
+            style={{
+              fontWeight: "bold",
+              marginBottom: "6px",
+              fontFamily: "system-ui",
+              color: "#6c757d",
+            }}
+          >
             Raw Message JSON:
           </div>
           {lastRawMessage ? (
@@ -404,7 +409,11 @@ function DLRDiagnosticsPanel({ context }: { context: PanelExtensionContext }): R
 }
 
 // Planning Factor Panel
-function DLRPlanningFactorPanel({ context }: { context: PanelExtensionContext }): React.JSX.Element {
+function DLRPlanningFactorPanel({
+  context,
+}: {
+  context: PanelExtensionContext;
+}): React.JSX.Element {
   const {
     result,
     allConditions,
@@ -486,7 +495,14 @@ function DLRPlanningFactorPanel({ context }: { context: PanelExtensionContext })
             color: "#495057",
           }}
         >
-          <div style={{ fontWeight: "bold", marginBottom: "6px", fontFamily: "system-ui", color: "#6c757d" }}>
+          <div
+            style={{
+              fontWeight: "bold",
+              marginBottom: "6px",
+              fontFamily: "system-ui",
+              color: "#6c757d",
+            }}
+          >
             Raw Message JSON:
           </div>
           {lastRawMessage ? (
