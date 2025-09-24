@@ -7,7 +7,7 @@ import {
   convertPredictedObjects,
   PerceptionSettings,
   convertKinematicState,
-  VehicleInfoSettings,
+  LocalizationSettings,
   convertPath,
   convertPathWithLaneId,
   convertTrajectory,
@@ -63,7 +63,7 @@ export function activate(extensionContext: ExtensionContext): void {
     fromSchemaName: "nav_msgs/msg/Odometry",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertKinematicState,
-    panelSettings: VehicleInfoSettings,
+    panelSettings: LocalizationSettings,
   });
 
   // Planning Converters

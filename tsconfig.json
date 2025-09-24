@@ -2,6 +2,7 @@
   "extends": "create-lichtblick-extension/tsconfig/tsconfig.json",
 
   "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
