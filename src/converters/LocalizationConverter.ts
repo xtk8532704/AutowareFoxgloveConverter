@@ -12,10 +12,13 @@ export interface LocalizationGUISettings {
   trajectoryFadeTime: number;
 }
 
-const trajectoryHistories: Map<string, Array<{
-  position: { x: number; y: number; z: number };
-  timestamp: { sec: number; nsec: number };
-}>> = new Map();
+const trajectoryHistories: Map<
+  string,
+  Array<{
+    position: { x: number; y: number; z: number };
+    timestamp: { sec: number; nsec: number };
+  }>
+> = new Map();
 
 export const LocalizationSettings: Record<string, PanelSettings<unknown>> = {
   "3D": {
@@ -61,8 +64,8 @@ export function convertKinematicState(
   const { header, pose } = msg;
   const { position, orientation } = pose.pose;
 
-  const vehicleColor = event.topic.includes('/localization/reference_kinematic_state') 
-    ? ReferenceEgoColor 
+  const vehicleColor = event.topic.includes("/localization/reference_kinematic_state")
+    ? ReferenceEgoColor
     : EgoColor;
 
   const {
@@ -115,16 +118,17 @@ export function convertKinematicState(
 
     const currentTime = header.stamp.sec + header.stamp.nsec / 1e9;
     const fadeTime = guiSettings?.trajectoryFadeTime ?? 4;
-    
+
     // Remove expired and future points from history
     for (let i = trajectoryHistory.length - 1; i >= 0; i--) {
-      const pointTime = trajectoryHistory[i]!.timestamp.sec + trajectoryHistory[i]!.timestamp.nsec / 1e9;
+      const pointTime =
+        trajectoryHistory[i]!.timestamp.sec + trajectoryHistory[i]!.timestamp.nsec / 1e9;
       if (currentTime - pointTime > fadeTime || pointTime > currentTime) {
         trajectoryHistory.splice(i, 1);
       }
     }
 
-    trajectorySpheres = trajectoryHistory.map((point) => {
+    trajectorySpheres = trajectoryHistory.map(point => {
       return {
         pose: {
           position: point.position,
@@ -138,7 +142,7 @@ export function convertKinematicState(
 
   const entities: SceneUpdate["entities"] = [
     {
-      id: `box_with_trajectory_${event.topic.replace(/[\/\-\.]/g, '_')}`,
+      id: `box_with_trajectory_${event.topic.replace(/[/\-.]/g, "_")}`,
       timestamp: header.stamp,
       frame_id: header.frame_id,
       frame_locked: false,

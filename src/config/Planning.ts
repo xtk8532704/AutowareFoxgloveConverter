@@ -6,7 +6,7 @@ export interface Color {
 }
 
 // Global base z-height for all visualizations
-export const BASE_Z_HEIGHT = 0.01
+export const BASE_Z_HEIGHT = 0.01;
 
 export interface PlanningConfig {
   // Path settings

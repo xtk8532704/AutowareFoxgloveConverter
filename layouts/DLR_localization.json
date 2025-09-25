@@ -6,22 +6,9 @@
         "distance": 37.0123561240972,
         "phi": 32.19798404234393,
         "thetaOffset": 104.56076157460981,
-        "targetOffset": [
-          -2.4718632302264223,
-          -1.2353094809854028,
-          6.480693124161151e-15
-        ],
-        "target": [
-          0,
-          0,
-          0
-        ],
-        "targetOrientation": [
-          0,
-          0,
-          0,
-          1
-        ],
+        "targetOffset": [-2.4718632302264223, -1.2353094809854028, 6.480693124161151e-15],
+        "target": [0, 0, 0],
+        "targetOrientation": [0, 0, 0, 1],
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -3827,8 +3814,7 @@
       "imageMode": {},
       "followTf": "base_link"
     },
-    "AutowareFoxgloveConverter.DLR Diagnostics!3l4lita": {},
-    "AutowareFoxgloveConverter.DLR Planning Factor!4kmxj8t": {},
+    "AutowareFoxgloveConverter.DLR Localization Result!v8bsq9": {},
     "AutowareFoxgloveConverter.Vehicle Info!3d09irc": {}
   },
   "globalVariables": {
@@ -3841,17 +3827,12 @@
   "layout": {
     "first": "3D!46c57bh",
     "second": {
-      "first": {
-        "first": "AutowareFoxgloveConverter.DLR Diagnostics!3l4lita",
-        "second": "AutowareFoxgloveConverter.DLR Planning Factor!4kmxj8t",
-        "direction": "column",
-        "splitPercentage": 42.16244042955074
-      },
+      "first": "AutowareFoxgloveConverter.DLR Localization Result!v8bsq9",
       "second": "AutowareFoxgloveConverter.Vehicle Info!3d09irc",
       "direction": "column",
       "splitPercentage": 81.76850471932438
     },
     "direction": "row",
-    "splitPercentage": 75.91264667535854
+    "splitPercentage": 69.3839567257159
   }
 }
