@@ -17,7 +17,9 @@ import {
 } from "./converters";
 
 // Panels
-import { initDLRDiagnosticsPanel, initDLRPlanningFactorPanel } from "./panels/DLRResultPanel";
+import { initDLRDiagnosticsPanel } from "./panels/DLRDiagnosticsPanel";
+import { initDLRPlanningFactorPanel } from "./panels/DLRPlanningFactorPanel";
+import { initDLRLocalizationPanel } from "./panels/DLRLocalizationPanel";
 import { initVehicleInfoPanel } from "./panels/VehicleInfoPanel";
 
 export function activate(extensionContext: ExtensionContext): void {
@@ -96,6 +98,11 @@ export function activate(extensionContext: ExtensionContext): void {
   extensionContext.registerPanel({
     name: "DLR Planning Factor",
     initPanel: initDLRPlanningFactorPanel,
+  });
+
+  extensionContext.registerPanel({
+    name: "DLR Localization Result",
+    initPanel: initDLRLocalizationPanel,
   });
 
   extensionContext.registerPanel({
