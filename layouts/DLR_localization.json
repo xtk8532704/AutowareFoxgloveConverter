@@ -3,21 +3,39 @@
     "3D!46c57bh": {
       "cameraState": {
         "perspective": true,
-        "distance": 98.08401423914366,
-        "phi": 6.717152602101905,
-        "thetaOffset": -165.89863590853483,
-        "targetOffset": [5.221476326431677, -2.9483194788862814, 4.678869561552051e-15],
-        "target": [0, 0, 0],
-        "targetOrientation": [0, 0, 0, 1],
+        "distance": 37.0123561240972,
+        "phi": 32.19798404234393,
+        "thetaOffset": 104.56076157460981,
+        "targetOffset": [
+          -2.4718632302264223,
+          -1.2353094809854028,
+          6.480693124161151e-15
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
         "fovy": 45,
         "near": 0.5,
         "far": 5000
       },
       "followMode": "follow-pose",
-      "scene": {},
+      "scene": {
+        "backgroundColor": "#010101",
+        "transforms": {
+          "showLabel": true
+        }
+      },
       "transforms": {
         "frame:base_link": {
-          "visible": false
+          "visible": true
         },
         "frame:map": {
           "visible": false
@@ -119,16 +137,42 @@
           "visible": false
         },
         "frame:ndt_base_link": {
+          "visible": true
+        },
+        "frame:": {
           "visible": false
         }
       },
       "topics": {
+        "/localization/kinematic_state": {
+          "viewTrajectoryPoints": "On",
+          "trajectoryFadeTime": 4,
+          "selectedVehicle": "large_bus",
+          "showEgoVehicle": true,
+          "vehicleOpacity": 1,
+          "visible": true,
+          "showOutlines": false,
+          "selectedIdVariable": "",
+          "vehicleSettings": 0,
+          "color": "#212121ba"
+        },
+        "/localization/reference_kinematic_state": {
+          "viewTrajectoryPoints": "On",
+          "trajectoryFadeTime": 4,
+          "visible": true,
+          "color": "#00ee344d"
+        },
         "/control/trajectory_follower/controller_node_exe/debug/predicted_trajectory_in_frenet_coordinate": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -138,9 +182,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -149,7 +191,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -159,7 +200,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -187,7 +227,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -200,10 +239,15 @@
         },
         "/control/trajectory_follower/controller_node_exe/debug/resampled_reference_trajectory": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -213,9 +257,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -224,7 +266,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -234,7 +275,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -262,7 +302,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -275,10 +314,15 @@
         },
         "/control/trajectory_follower/lateral/predicted_trajectory": {
           "viewPath": "On",
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -288,9 +332,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -299,7 +341,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -309,7 +350,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -337,7 +377,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -349,22 +388,25 @@
           "rearOverhang": 1.03,
           "visible": false
         },
-        "/localization/kinematic_state": {
-          "selectedVehicle": "large_bus",
-          "showEgoVehicle": true,
-          "vehicleOpacity": 1,
+        "/perception/object_recognition/objects": {
           "visible": true,
-          "showOutlines": true,
-          "selectedIdVariable": "",
-          "vehicleSettings": 0,
-          "color": "#00000069"
+          "viewPathObjectId": "On"
+        },
+        "/perception/object_recognition/tracking/objects": {
+          "visible": false,
+          "viewPathObjectId": "On"
         },
         "/planning/path_candidate/bidirectional_traffic": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -374,9 +416,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -385,7 +425,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -395,7 +434,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -427,7 +465,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -437,10 +474,15 @@
         },
         "/planning/path_candidate/goal_planner": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -450,9 +492,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -461,7 +501,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -471,7 +510,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -503,7 +541,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -512,10 +549,15 @@
         },
         "/planning/path_candidate/lane_change_left": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -525,9 +567,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -536,7 +576,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -546,7 +585,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -578,7 +616,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -587,10 +624,15 @@
         },
         "/planning/path_candidate/lane_change_right": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -600,9 +642,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -611,7 +651,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -621,7 +660,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -653,7 +691,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -662,10 +699,15 @@
         },
         "/planning/path_candidate/side_shift": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -675,9 +717,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -686,7 +726,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -696,7 +735,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -728,7 +766,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -737,10 +774,15 @@
         },
         "/planning/path_candidate/start_planner": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -750,9 +792,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -761,7 +801,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -771,7 +810,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -803,7 +841,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -812,10 +849,15 @@
         },
         "/planning/path_candidate/static_obstacle_avoidance": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -825,9 +867,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -836,7 +876,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -846,7 +885,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -878,7 +916,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -887,10 +924,15 @@
         },
         "/planning/path_reference/bidirectional_traffic": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -900,9 +942,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -911,7 +951,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -921,7 +960,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -953,7 +991,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -962,10 +999,15 @@
         },
         "/planning/path_reference/goal_planner": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -975,9 +1017,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -986,7 +1026,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -996,7 +1035,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1028,7 +1066,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -1037,10 +1074,15 @@
         },
         "/planning/path_reference/lane_change_left": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1050,9 +1092,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1061,7 +1101,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1071,7 +1110,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1103,7 +1141,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -1112,10 +1149,15 @@
         },
         "/planning/path_reference/lane_change_right": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1125,9 +1167,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1136,7 +1176,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1146,7 +1185,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1178,7 +1216,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -1187,10 +1224,15 @@
         },
         "/planning/path_reference/side_shift": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1200,9 +1242,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1211,7 +1251,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1221,7 +1260,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1253,7 +1291,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -1262,10 +1299,15 @@
         },
         "/planning/path_reference/start_planner": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1275,9 +1317,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1286,7 +1326,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1296,7 +1335,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1328,7 +1366,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -1337,10 +1374,15 @@
         },
         "/planning/path_reference/static_obstacle_avoidance": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1350,9 +1392,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1361,7 +1401,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1371,7 +1410,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1403,7 +1441,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": true,
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -1412,10 +1449,15 @@
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/path": {
           "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "On",
+          "viewTimeText": "off",
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": "Off",
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1425,9 +1467,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": "Off",
           "velocityTextScale": 0.3,
-          "viewFootprint": "Off",
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1436,7 +1476,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": "Off",
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1446,7 +1485,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": "On",
           "drivableAreaAlpha": 0.1,
           "drivableAreaColor": {
             "r": 0,
@@ -1478,21 +1516,25 @@
           "slopeTextScale": 0.3,
           "viewLaneId": "off",
           "laneIdScale": 0.1,
-          "viewTimeText": "off",
           "timeTextScale": 0.3,
           "selectedVehicle": "large_bus",
           "vehicleLength": 4.77,
           "vehicleWidth": 1.83,
           "rearOverhang": 1.03,
           "showOutlines": false,
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/path_with_lane_id": {
           "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "On",
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": "Off",
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1502,9 +1544,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": "Off",
           "velocityTextScale": 0.3,
-          "viewFootprint": "Off",
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1513,7 +1553,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": "Off",
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1523,7 +1562,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": "On",
           "drivableAreaAlpha": 0.101,
           "drivableAreaColor": {
             "r": 0,
@@ -1555,7 +1593,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": "Off",
           "laneIdScale": 0.1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -1566,10 +1603,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/elastic_band_smoother/debug/eb_fixed_traj": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1579,9 +1621,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1590,7 +1630,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1600,7 +1639,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1628,7 +1666,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -1641,10 +1678,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/elastic_band_smoother/debug/eb_traj": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1654,9 +1696,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1665,7 +1705,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1675,7 +1714,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1703,7 +1741,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -1716,10 +1753,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/elastic_band_smoother/debug/extended_traj": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1729,9 +1771,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1740,7 +1780,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1750,7 +1789,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1778,7 +1816,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -1791,10 +1828,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/elastic_band_smoother/output/traj": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1804,9 +1846,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1815,7 +1855,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1825,7 +1864,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1853,7 +1891,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -1866,10 +1903,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/motion_velocity_planner/debug/run_out/trajectory": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1879,9 +1921,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1890,7 +1930,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1900,7 +1939,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -1928,7 +1966,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -1941,10 +1978,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/path_optimizer/debug/extended_traj": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -1954,9 +1996,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -1965,7 +2005,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -1975,7 +2014,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2003,7 +2041,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2016,10 +2053,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/path_optimizer/debug/mpt_fixed_traj": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2029,9 +2071,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2040,7 +2080,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2050,7 +2089,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2078,7 +2116,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2091,10 +2128,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/path_optimizer/debug/mpt_ref_traj": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2104,9 +2146,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2115,7 +2155,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2125,7 +2164,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2153,7 +2191,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2166,10 +2203,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/path_optimizer/debug/mpt_traj": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2179,9 +2221,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2190,7 +2230,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2200,7 +2239,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2228,7 +2266,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2241,10 +2278,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/path_optimizer/trajectory": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2254,9 +2296,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2265,7 +2305,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2275,7 +2314,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2303,7 +2341,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2316,10 +2353,15 @@
         },
         "/planning/scenario_planning/lane_driving/motion_planning/path_smoother/path": {
           "viewPath": "Off",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "On",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off",
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": "Off",
           "velocityAlpha": 1,
           "velocityScale": 0.10000000000000009,
           "velocityConstantColor": false,
@@ -2329,9 +2371,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": "Off",
           "velocityTextScale": 0.3,
-          "viewFootprint": "On",
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2340,7 +2380,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": "Off",
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2350,7 +2389,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": "Off",
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2382,7 +2420,6 @@
           "slopeTextScale": 0.3,
           "viewLaneId": "Off",
           "laneIdScale": 0.1,
-          "viewTimeText": "Off",
           "timeTextScale": 0.3,
           "selectedVehicle": "medium_bus",
           "vehicleLength": 4.77,
@@ -2392,10 +2429,15 @@
         },
         "/planning/scenario_planning/lane_driving/trajectory": {
           "viewPath": "On",
+          "viewVelocity": "On",
+          "viewVelocityText": "On",
+          "viewFootprint": "On",
+          "viewPoint": "On",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "On",
           "pathWidth": 5,
           "colorBorderVelMax": 4,
           "fadeOutDistance": 0,
-          "viewVelocity": "On",
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2405,9 +2447,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": "On",
           "velocityTextScale": 0.3,
-          "viewFootprint": "On",
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2416,7 +2456,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": "On",
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2426,7 +2465,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": "Off",
           "drivableAreaAlpha": 1,
           "drivableAreaColor": {
             "r": 0,
@@ -2454,7 +2492,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": "On",
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2469,10 +2506,15 @@
         },
         "/planning/scenario_planning/parking/trajectory": {
           "viewPath": "On",
+          "viewVelocity": "On",
+          "viewVelocityText": "On",
+          "viewFootprint": "On",
+          "viewPoint": "On",
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": "On",
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2482,9 +2524,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": "On",
           "velocityTextScale": 0.3,
-          "viewFootprint": "On",
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2493,7 +2533,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": "On",
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2503,7 +2542,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2531,7 +2569,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2546,10 +2583,15 @@
         },
         "/planning/scenario_planning/scenario_selector/trajectory": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2559,9 +2601,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2570,7 +2610,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2580,7 +2619,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2608,7 +2646,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2621,10 +2658,15 @@
         },
         "/planning/scenario_planning/trajectory": {
           "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "On",
+          "viewPoint": "Off",
+          "viewDrivableArea": true,
+          "viewTimeText": "Off",
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": "Off",
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2634,9 +2676,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2645,7 +2685,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2655,7 +2694,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2683,7 +2721,6 @@
             "a": 1
           },
           "pathAlpha": 0,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2697,10 +2734,15 @@
         },
         "/planning/scenario_planning/velocity_smoother/debug/backward_filtered_trajectory": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2710,9 +2752,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2721,7 +2761,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2731,7 +2770,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2759,7 +2797,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2772,10 +2809,15 @@
         },
         "/planning/scenario_planning/velocity_smoother/debug/forward_filtered_trajectory": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2785,9 +2827,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2796,7 +2836,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2806,7 +2845,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2834,7 +2872,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2847,10 +2884,15 @@
         },
         "/planning/scenario_planning/velocity_smoother/debug/merged_filtered_trajectory": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2860,9 +2902,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2871,7 +2911,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2881,7 +2920,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2909,7 +2947,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2922,10 +2959,15 @@
         },
         "/planning/scenario_planning/velocity_smoother/debug/trajectory_external_velocity_limited": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -2935,9 +2977,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -2946,7 +2986,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -2956,7 +2995,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -2984,7 +3022,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -2997,10 +3034,15 @@
         },
         "/planning/scenario_planning/velocity_smoother/debug/trajectory_lateral_acc_filtered": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -3010,9 +3052,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -3021,7 +3061,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -3031,7 +3070,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -3059,7 +3097,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -3072,10 +3109,15 @@
         },
         "/planning/scenario_planning/velocity_smoother/debug/trajectory_raw": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -3085,9 +3127,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -3096,7 +3136,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -3106,7 +3145,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -3134,7 +3172,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -3147,10 +3184,15 @@
         },
         "/planning/scenario_planning/velocity_smoother/debug/trajectory_steering_rate_limited": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -3160,9 +3202,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -3171,7 +3211,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -3181,7 +3220,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -3209,7 +3247,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -3222,10 +3259,15 @@
         },
         "/planning/scenario_planning/velocity_smoother/debug/trajectory_time_resampled": {
           "viewPath": true,
+          "viewVelocity": true,
+          "viewVelocityText": false,
+          "viewFootprint": false,
+          "viewPoint": false,
+          "viewDrivableArea": true,
+          "viewTimeText": false,
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": true,
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -3235,9 +3277,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": false,
           "velocityTextScale": 0.3,
-          "viewFootprint": false,
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -3246,7 +3286,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": false,
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -3256,7 +3295,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -3284,7 +3322,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": false,
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -3297,10 +3334,15 @@
         },
         "/planning/scenario_planning/velocity_smoother/trajectory": {
           "viewPath": "Off",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "On",
+          "viewPoint": "Off",
+          "viewDrivableArea": true,
+          "viewTimeText": "Off",
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": "Off",
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": false,
@@ -3310,9 +3352,7 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": "Off",
           "velocityTextScale": 0.3,
-          "viewFootprint": "On",
           "footprintAlpha": 1,
           "footprintColor": {
             "r": 0.902,
@@ -3321,7 +3361,6 @@
             "a": 1
           },
           "offsetFromBaselink": 0,
-          "viewPoint": "Off",
           "pointAlpha": 1,
           "pointColor": {
             "r": 0,
@@ -3331,7 +3370,6 @@
           },
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -3359,7 +3397,6 @@
             "a": 1
           },
           "pathAlpha": 1,
-          "viewTimeText": "Off",
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -3373,10 +3410,15 @@
         },
         "/planning/trajectory": {
           "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": true,
+          "viewTimeText": "Off",
           "pathWidth": 2,
           "colorBorderVelMax": 3,
           "fadeOutDistance": 0,
-          "viewVelocity": "On",
           "velocityAlpha": 1,
           "velocityScale": 0.3,
           "velocityConstantColor": "Off",
@@ -3386,17 +3428,13 @@
             "b": 0,
             "a": 1
           },
-          "viewVelocityText": "Off",
           "velocityTextScale": 0.3,
-          "viewFootprint": "Off",
           "footprintAlpha": 0,
           "offsetFromBaselink": 0,
-          "viewPoint": "Off",
           "pointAlpha": 1,
           "pointColor": "#9f3030ff",
           "pointRadius": 0.1,
           "pointOffset": 0,
-          "viewDrivableArea": true,
           "drivableAreaAlpha": 0.999,
           "drivableAreaColor": {
             "r": 0,
@@ -3424,7 +3462,6 @@
             "a": 1
           },
           "pathAlpha": 0.999909,
-          "viewTimeText": "Off",
           "timeTextScale": 0.3,
           "viewSlopeText": false,
           "slopeTextScale": 0.3,
@@ -3442,7 +3479,7 @@
           "visible": true
         },
         "/control/autonomous_emergency_braking/virtual_wall": {
-          "visible": true
+          "visible": false
         },
         "/control/autonomous_emergency_braking/debug/markers": {
           "visible": false
@@ -3454,7 +3491,7 @@
           "visible": false
         },
         "/planning/mission_planning/route_marker": {
-          "visible": true,
+          "visible": false,
           "showOutlines": false
         },
         "/planning/planning_validator/debug/marker": {
@@ -3616,12 +3653,6 @@
         "/control/vehicle_cmd_gate/is_filter_activated/marker_raw": {
           "visible": false
         },
-        "/perception/object_recognition/objects": {
-          "visible": true
-        },
-        "/perception/object_recognition/tracking/objects": {
-          "visible": false
-        },
         "/perception/obstacle_segmentation/pointcloud": {
           "visible": true,
           "colorField": "intensity",
@@ -3653,7 +3684,7 @@
           "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/virtual_traffic_light": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/traffic_light": {
           "visible": false
@@ -3677,10 +3708,13 @@
           "visible": false
         },
         "/map/pointcloud_map": {
-          "visible": false,
+          "visible": true,
           "colorField": "intensity",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
+          "colorMode": "flat",
+          "colorMap": "turbo",
+          "stixelsEnabled": false,
+          "pointSize": 2,
+          "flatColor": "#e3e1e180"
         },
         "/perception/occupancy_grid_map/map": {
           "visible": false
@@ -3701,16 +3735,16 @@
           "visible": false
         },
         "/control/control_validator/virtual_wall": {
-          "visible": true
+          "visible": false
         },
         "/planning/planning_validator/virtual_wall": {
-          "visible": true
+          "visible": false
         },
         "/control/trajectory_follower/controller_node_exe/virtual_wall": {
           "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/virtual_wall/bidirectional_traffic": {
-          "visible": true
+          "visible": false
         },
         "/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/virtual_wall/goal_planner": {
           "visible": true
@@ -3759,6 +3793,25 @@
         },
         "/planning/scenario_planning/velocity_smoother/virtual_wall": {
           "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/surround_obstacle_checker/debug/footprint": {
+          "visible": false
+        },
+        "/localization/util/downsample/pointcloud": {
+          "visible": true,
+          "colorField": "z",
+          "colorMode": "colormap",
+          "colorMap": "turbo",
+          "stixelsEnabled": false,
+          "pointSize": 5,
+          "flatColor": "#e31b1bff",
+          "explicitAlpha": 0.58
+        },
+        "/localization/pose_estimator/ndt_marker": {
+          "visible": false
+        },
+        "/localization/pose_estimator/pose_with_covariance": {
+          "visible": false
         }
       },
       "layers": {},
@@ -3783,7 +3836,7 @@
   },
   "userNodes": {},
   "playbackConfig": {
-    "speed": 5
+    "speed": 0.5
   },
   "layout": {
     "first": "3D!46c57bh",
@@ -3792,13 +3845,13 @@
         "first": "AutowareFoxgloveConverter.DLR Diagnostics!3l4lita",
         "second": "AutowareFoxgloveConverter.DLR Planning Factor!4kmxj8t",
         "direction": "column",
-        "splitPercentage": 59.53827460510328
+        "splitPercentage": 42.16244042955074
       },
       "second": "AutowareFoxgloveConverter.Vehicle Info!3d09irc",
       "direction": "column",
       "splitPercentage": 81.76850471932438
     },
     "direction": "row",
-    "splitPercentage": 62.07834693639111
+    "splitPercentage": 75.91264667535854
   }
 }

@@ -425,7 +425,7 @@ export function convertPlanningMessage<T extends Path | PathWithLaneId | Traject
 
       velocityTexts.push({
         pose: {
-          position: { ...pose.position, z: pose.position.z + BASE_Z_HEIGHT + 0.15 },
+          position: { ...pose.position, z: pose.position.z + BASE_Z_HEIGHT + 0.04 },
           orientation: pose.orientation,
         },
         billboard: true,
@@ -507,8 +507,8 @@ export function convertPlanningMessage<T extends Path | PathWithLaneId | Traject
           colors: [color, color],
           indices: [0, 1],
           points: [
-            { x: x1, y: y1, z: pose.position.z + BASE_Z_HEIGHT + 0.12 },
-            { x: x2, y: y2, z: pose.position.z + BASE_Z_HEIGHT + 0.12 },
+            { x: x1, y: y1, z: pose.position.z + BASE_Z_HEIGHT + 0.02 },
+            { x: x2, y: y2, z: pose.position.z + BASE_Z_HEIGHT + 0.02 },
           ],
         });
       }
@@ -545,7 +545,7 @@ export function convertPlanningMessage<T extends Path | PathWithLaneId | Traject
       const offset = config.pointOffset;
       const baseX = pose.position.x + offset * Math.cos(yaw);
       const baseY = pose.position.y + offset * Math.sin(yaw);
-      const baseZ = pose.position.z + BASE_Z_HEIGHT + 0.13;
+      const baseZ = pose.position.z + BASE_Z_HEIGHT + 0.03;
 
       const color = { ...config.pointColor, a: config.pointAlpha };
 
@@ -588,13 +588,13 @@ export function convertPlanningMessage<T extends Path | PathWithLaneId | Traject
       const leftBoundPoints = msg.left_bound.map(point => ({
         x: point.x,
         y: point.y,
-        z: point.z + BASE_Z_HEIGHT + 0.19,
+        z: point.z + BASE_Z_HEIGHT + 0.05,
       }));
 
       const rightBoundPoints = msg.right_bound.map(point => ({
         x: point.x,
         y: point.y,
-        z: point.z + BASE_Z_HEIGHT + 0.19,
+        z: point.z + BASE_Z_HEIGHT + 0.05,
       }));
 
       if (leftBoundPoints.length > 1) {
@@ -677,7 +677,7 @@ export function convertPlanningMessage<T extends Path | PathWithLaneId | Traject
 
         timeTexts.push({
           pose: {
-            position: { ...pose.position, z: pose.position.z + BASE_Z_HEIGHT + 0.15 },
+            position: { ...pose.position, z: pose.position.z + BASE_Z_HEIGHT + 0.04 },
             orientation: pose.orientation,
           },
           billboard: true,

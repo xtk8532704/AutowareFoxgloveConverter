@@ -4,18 +4,18 @@ import { vehicleInfoManager } from "../panels/VehicleInfoPanel";
 import { SceneUpdate, CubePrimitive, SpherePrimitive } from "@foxglove/schemas";
 import { MessageEvent, Immutable, PanelSettings } from "@lichtblick/suite";
 
-const EgoColor = { r: 0.5, g: 0.5, b: 0.5, a: 0.7 }; // Gray
+const EgoColor = { r: 0.627, g: 0.627, b: 0.627, a: 0.5 }; // Gray color: #a0a0a0a8
+const ReferenceEgoColor = { r: 0.0, g: 0.933, b: 0.204, a: 0.5 }; // Green color: #00ee344d
 
 export interface LocalizationGUISettings {
   viewTrajectoryPoints: string;
   trajectoryFadeTime: number;
 }
 
-// Store trajectory point history data
-const trajectoryHistory: Array<{
+const trajectoryHistories: Map<string, Array<{
   position: { x: number; y: number; z: number };
   timestamp: { sec: number; nsec: number };
-}> = [];
+}>> = new Map();
 
 export const LocalizationSettings: Record<string, PanelSettings<unknown>> = {
   "3D": {
@@ -61,6 +61,10 @@ export function convertKinematicState(
   const { header, pose } = msg;
   const { position, orientation } = pose.pose;
 
+  const vehicleColor = event.topic.includes('/localization/reference_kinematic_state') 
+    ? ReferenceEgoColor 
+    : EgoColor;
+
   const {
     wheel_base,
     wheel_tread,
@@ -88,7 +92,7 @@ export function convertKinematicState(
     z: position.z + offsetZ,
   };
   const EgoCube: CubePrimitive = {
-    color: EgoColor,
+    color: vehicleColor,
     size: { x: vehicleLength, y: vehicleWidth, z: vehicleHeight },
     pose: {
       position: vehicleCenterPosition,
@@ -96,27 +100,14 @@ export function convertKinematicState(
     },
   };
 
-  const entities: SceneUpdate["entities"] = [
-    {
-      id: `ego_vehicle`,
-      timestamp: header.stamp,
-      frame_id: header.frame_id,
-      frame_locked: false,
-      lifetime: { sec: 1, nsec: 0 },
-      metadata: [],
-      arrows: [],
-      cylinders: [],
-      lines: [],
-      spheres: [],
-      texts: [],
-      triangles: [],
-      models: [],
-      cubes: [EgoCube],
-    },
-  ];
+  let trajectorySpheres: SpherePrimitive[] = [];
 
   if (guiSettings?.viewTrajectoryPoints === "On") {
-    // Add current position to trajectory history
+    if (!trajectoryHistories.has(event.topic)) {
+      trajectoryHistories.set(event.topic, []);
+    }
+    const trajectoryHistory = trajectoryHistories.get(event.topic)!;
+
     trajectoryHistory.push({
       position: position,
       timestamp: header.stamp,
@@ -133,43 +124,36 @@ export function convertKinematicState(
       }
     }
 
-    // Create trajectory spheres with fixed color
-    const trajectorySpheres: SpherePrimitive[] = trajectoryHistory.map((point) => {
+    trajectorySpheres = trajectoryHistory.map((point) => {
       return {
         pose: {
           position: point.position,
           orientation: { x: 0, y: 0, z: 0, w: 1 },
         },
         size: { x: 0.1, y: 0.1, z: 0.1 },
-        color: EgoColor,
+        color: vehicleColor,
       };
     });
-
-    // Add trajectory spheres as separate entity to avoid color override
-    if (trajectorySpheres.length > 0) {
-      entities.push({
-        id: `trajectory_points`,
-        timestamp: header.stamp,
-        frame_id: header.frame_id,
-        frame_locked: false,
-        lifetime: { sec: 1, nsec: 0 },
-        metadata: [
-          {
-            key: "color_override",
-            value: "false"
-          }
-        ],
-        arrows: [],
-        cylinders: [],
-        lines: [],
-        spheres: trajectorySpheres,
-        texts: [],
-        triangles: [],
-        models: [],
-        cubes: [],
-      });
-    }
   }
+
+  const entities: SceneUpdate["entities"] = [
+    {
+      id: `box_with_trajectory_${event.topic.replace(/[\/\-\.]/g, '_')}`,
+      timestamp: header.stamp,
+      frame_id: header.frame_id,
+      frame_locked: false,
+      lifetime: { sec: 1, nsec: 0 },
+      metadata: [],
+      arrows: [],
+      cylinders: [],
+      lines: [],
+      spheres: trajectorySpheres,
+      texts: [],
+      triangles: [],
+      models: [],
+      cubes: [EgoCube],
+    },
+  ];
 
   return {
     deletions: [],
