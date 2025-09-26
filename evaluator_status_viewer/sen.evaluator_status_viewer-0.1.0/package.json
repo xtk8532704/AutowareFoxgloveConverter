@@ -1,0 +1,38 @@
+{
+  "name": "evaluator_status_viewer",
+  "displayName": "evaluator_status_viewer",
+  "description": "",
+  "publisher": "SEN",
+  "homepage": "",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "main": "./dist/extension.js",
+  "keywords": [],
+  "scripts": {
+    "build": "lichtblick-extension build",
+    "lichtblick:prepublish": "lichtblick-extension build --mode production",
+    "lint": "eslint .",
+    "lint:ci": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "local-install": "lichtblick-extension install",
+    "package": "lichtblick-extension package",
+    "pretest": "lichtblick-extension pretest"
+  },
+  "devDependencies": {
+    "@lichtblick/eslint-plugin": "1.0.4",
+    "@lichtblick/suite": "1.14.0",
+    "@types/react": "18.3.22",
+    "@types/react-dom": "18.3.7",
+    "create-lichtblick-extension": "1.0.0",
+    "eslint": "8.57.1",
+    "prettier": "3.5.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "typescript": "5.8.3"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.1.0"
+  }
+}

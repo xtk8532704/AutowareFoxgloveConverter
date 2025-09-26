@@ -24,13 +24,16 @@ Special thanks to [https://github.com/kminoda/AutowareFoxgloveConverter](https:/
 
 ### Available Panels
 
-- **DLR Diagnostics**: Display diagnostics condition results of [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2)
-- **DLR Planning Factor**: Display planning factor condition results of [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2)
+- **DLR Diagnostics Result**: Display diagnostic condition results of [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2)
+- **DLR PlanningFactor Result** Display planning factor condition results for `planning_control` of [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2)
+- **DLR Localization Result** Display localization results of [DrivingLogReplayerv2](https://github.com/tier4/driving_log_replayer_v2)
 - **Vehicle Config**: Select a vehicle to display the ego vehicle
 
 ### Available Layouts
 
-- [DLRLayout.json](./DLRLayout.json) - Pre-configured layout for DLR diagnostics visualization
+- [DLR_localization.json](./layouts/DLR_localization.json) - layout for `localization` DLR tests
+- [DLR_planning_control.json](./layouts/DLR_planning_control.json) - layout for `planning_control` DLR tests
+- [ScenarioSimulator.json](./layouts/ScenarioSimulator.json) - layout for ScenarioSimulator_v2
 
 ## Installation
 
@@ -48,7 +51,7 @@ bash ./install.sh
 ## TODO List
 
 - Converter for planning_factor
-- Display objects' ID
+- Import vehicle info from json config
 
 ---
 
