@@ -1,0 +1,542 @@
+{
+  "configById": {
+    "3D!1i25fo5": {
+      "cameraState": {
+        "perspective": true,
+        "distance": 53.00068653270491,
+        "phi": 60.308837976045446,
+        "thetaOffset": 89.5833333333449,
+        "targetOffset": [
+          12.352865559832054,
+          -0.4519676566396337,
+          -1.866528292806969e-15
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "followTf": "base_link",
+      "scene": {
+        "enableStats": true,
+        "labelScaleFactor": 1,
+        "ignoreColladaUpAxis": false,
+        "syncCamera": false
+      },
+      "transforms": {
+        "frame:": {
+          "visible": false
+        },
+        "frame:map": {
+          "visible": false
+        },
+        "frame:base_link": {
+          "visible": false
+        },
+        "frame:ego": {
+          "visible": false
+        },
+        "frame:entities": {
+          "visible": false
+        }
+      },
+      "topics": {
+        "/awapi/prediction/get/objects": {},
+        "/control/trajectory_follower/controller_node_exe/debug/predicted_trajectory_in_frenet_coordinate": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/control/trajectory_follower/controller_node_exe/debug/resampled_reference_trajectory": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/control/trajectory_follower/lateral/predicted_trajectory": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/localization/kinematic_state": {
+          "viewTrajectoryPoints": "Off",
+          "trajectoryFadeTime": 4,
+          "visible": false
+        },
+        "/perception/object_recognition/ground_truth/objects": {},
+        "/perception/object_recognition/objects": {
+          "visible": true
+        },
+        "/perception/object_recognition/tracking/objects": {},
+        "/planning/path_candidate/bidirectional_traffic": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_candidate/goal_planner": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_candidate/lane_change_left": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_candidate/lane_change_right": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_candidate/side_shift": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_candidate/start_planner": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_candidate/static_obstacle_avoidance": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_reference/bidirectional_traffic": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_reference/goal_planner": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_reference/lane_change_left": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_reference/lane_change_right": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_reference/side_shift": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_reference/start_planner": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/path_reference/static_obstacle_avoidance": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/path": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off",
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/path_with_lane_id": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/elastic_band_smoother/debug/eb_fixed_traj": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/elastic_band_smoother/debug/eb_traj": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/elastic_band_smoother/output/traj": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/motion_velocity_planner/debug/run_out/trajectory": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/path_optimizer/debug/extended_traj": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/path_optimizer/debug/mpt_fixed_traj": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/path_optimizer/debug/mpt_ref_traj": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/path_optimizer/debug/mpt_traj": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/path_optimizer/trajectory": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/path_smoother/path": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/lane_driving/trajectory": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off",
+          "visible": false
+        },
+        "/planning/scenario_planning/scenario_selector/trajectory": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/scenario_planning/trajectory": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off",
+          "visible": false
+        },
+        "/planning/scenario_planning/velocity_smoother/trajectory": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off"
+        },
+        "/planning/trajectory": {
+          "viewPath": "On",
+          "viewVelocity": "Off",
+          "viewVelocityText": "Off",
+          "viewFootprint": "Off",
+          "viewPoint": "Off",
+          "viewDrivableArea": "Off",
+          "viewTimeText": "Off",
+          "visible": true
+        },
+        "/autoware/state": {
+          "visible": true
+        },
+        "/simulation/entity/marker": {
+          "visible": true,
+          "showOutlines": true,
+          "color": "#00c3ffd9"
+        },
+        "/simulation/lanelet/marker": {
+          "visible": true
+        },
+        "/simulation/traffic_lights": {
+          "visible": true
+        },
+        "/simulation/traffic_light/marker": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/virtual_wall/goal_planner": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/path": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/detection_area": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/stop_line": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/virtual_wall/virtual_traffic_light": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/motion_velocity_planner/obstacle_slow_down/virtual_walls": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/motion_velocity_planner/obstacle_stop/virtual_walls": {
+          "visible": true
+        },
+        "/control/control_validator/virtual_wall": {
+          "visible": true
+        },
+        "/planning/mission_planning/echo_back_goal_pose": {
+          "visible": true,
+          "axisScale": 2.2
+        },
+        "/planning/mission_planning/mission_planner/debug/goal_footprint": {
+          "visible": false,
+          "showOutlines": true,
+          "namespaces": {
+            "goal_footprint": {
+              "visible": true
+            }
+          },
+          "selectedIdVariable": ""
+        },
+        "/control/autonomous_emergency_braking/virtual_wall": {
+          "visible": true
+        },
+        "/planning/planning_validator/virtual_wall": {
+          "visible": true
+        },
+        "/planning/scenario_planning/lane_driving/motion_planning/obstacle_stop_planner/virtual_wall": {
+          "visible": true
+        },
+        "/map/vector_map_marker": {
+          "visible": true,
+          "showOutlines": true,
+          "namespaces": {
+            "lane_start_bound": {
+              "visible": true
+            },
+            "road_lanelets": {
+              "visible": false
+            },
+            "left_lane_bound": {
+              "visible": true
+            },
+            "shoulder_road_lanelets": {
+              "visible": false
+            },
+            "right_lane_bound": {
+              "visible": true
+            },
+            "partitions": {
+              "visible": true
+            },
+            "road_borders": {
+              "visible": true
+            },
+            "lanelet_id": {
+              "visible": false
+            },
+            "curbstone": {
+              "visible": true
+            }
+          }
+        }
+      },
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {}
+    },
+    "Indicator!3cq4icr": {
+      "path": "/api/autoware/get/engage.engage",
+      "style": "background",
+      "fallbackColor": "#a0a0a0",
+      "fallbackLabel": "False",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "true",
+          "color": "#68e24a",
+          "label": "True"
+        }
+      ]
+    },
+    "evaluator_status_viewer.evaluator-status-panel!2epzepg": {},
+    "RawMessages!21rpfci": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/awapi/autoware/get/status.stop_reason",
+      "expansion": {
+        "header": "c",
+        "stamp~header": "c",
+        "stop_reasons": "e",
+        "0~stop_reasons": "e",
+        "stop_factors~0~stop_reasons": "e",
+        "0~stop_factors~0~stop_reasons": "e",
+        "stop_pose~0~stop_factors~0~stop_reasons": "c",
+        "position~stop_pose~0~stop_factors~0~stop_reasons": "c",
+        "orientation~stop_pose~0~stop_factors~0~stop_reasons": "c",
+        "stop_factor_points~0~stop_factors~0~stop_reasons": "c"
+      }
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": {
+    "first": {
+      "first": "3D!1i25fo5",
+      "second": {
+        "first": "Indicator!3cq4icr",
+        "second": "RawMessages!21rpfci",
+        "direction": "column",
+        "splitPercentage": 10.17897091722595
+      },
+      "direction": "row",
+      "splitPercentage": 79.60893854748603
+    },
+    "second": "evaluator_status_viewer.evaluator-status-panel!2epzepg",
+    "direction": "column",
+    "splitPercentage": 61.527873365450795
+  }
+}
