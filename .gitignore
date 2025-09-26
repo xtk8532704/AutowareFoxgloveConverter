@@ -66,6 +66,8 @@ out
 # Nuxt.js build output
 .nuxt
 dist
+# Exception for evaluator_status_viewer dist
+!evaluator_status_viewer/**/dist
 
 # Gatsby files
 .cache/
